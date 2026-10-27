@@ -169,7 +169,7 @@ Mùa Đông phải nhìn ra là mùa Đông ngay khi liếc xuống:
 Để có cảm giác khu rừng có chiều sâu:
 - ✅ (sửa 2026-10-24) Ngay khi có **hai cây tán** (kể cả cây non) đứng liền nhau (không có cây tán khác ở giữa) với gốc cách nhau **< 8 cột**, giữa hai cây mọc thêm **3–5 cây phía xa** (số lượng ngẫu nhiên theo cặp). Trồng thêm cây chính vào giữa thì cặp cũ chia thành hai cặp nhỏ, mỗi cặp có nhóm cây xa riêng.
 - Cây phía xa: cùng loài với một trong hai cây chính, **mờ hơn** (độ đục 35–60%), ngả xanh lam nhẹ như bị sương xa, nhỏ hơn (60–90% chiều cao loài), đứng sau cây chính, **rải đều** lấp khoảng giữa hai gốc (lệch nhẹ ngẫu nhiên, không chụm lại).
-- **Lớn cùng cây chính:** cây phía xa nảy mầm cùng lúc với cây chính trẻ hơn trong cặp và lớn theo đúng nhịp của cây đó; chết già theo tuổi thọ loài.
+- **Lớn cùng cây chính:** cây phía xa nảy mầm cùng lúc với cây chính trẻ hơn trong cặp và lớn theo đúng nhịp của cây đó; chết già theo tuổi thọ loài. ✅ (2026-10-27) Chết già thì **một cây non mọc lại đúng chỗ đó** (thế hệ sau, lớn theo nhịp của loài), nên khi cặp cây chính còn sống thì khoảng giữa không bao giờ trống. Trước đây cây xa chết hẳn, cây chính già sống tiếp nên khoảng giữa trống mãi.
 - **Theo cây chính của nó:** đổi lá theo mùa như cây chính; cây chính ngủ khô (trơ cành) thì cây phía xa cùng loài cũng trơ cành.
 - **Không tương tác:** không che bóng, không giữ ẩm, không có quả, không trú ẩn, không tính Sinh khí hay Đa dạng; thú không ăn, chuột không chọn được.
 - Nếu **một trong hai cây chính mất** (chết, bị thay), cả nhóm cây phía xa của cặp đó **tàn lụi dần** rồi biến mất.

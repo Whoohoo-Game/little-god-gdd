@@ -18,7 +18,8 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
   | Đồng cỏ (7 loài) | [07](07-he-sinh-thai-chi-tiet.md) | 💡 Đã kiểm chứng |
   | Ao (5 loài) | [08 §6](08-nhieu-vung-va-ao.md#6-biome-ao) | 💡 Đã kiểm chứng |
   | Hồi sinh vùng, Sức khoẻ, Sinh khí nhiều vùng | [08 §3–5, §7](08-nhieu-vung-va-ao.md) | 💡 Đã kiểm chứng |
-  | Khoảnh khắc (vòng ngắn) | [09](09-khoanh-khac.md) | 💡 Đã đặc tả, chưa kiểm chứng |
+  | Khoảnh khắc (vòng ngắn) | [09](09-khoanh-khac.md), bản rút gọn ở [15 §3](15-sinh-dong-va-phan-hoi.md#3-khoảnh-khắc-m5-rút-gọn) | 💡 Đã đặc tả, chưa kiểm chứng |
+  | Sinh động & phản hồi (chỉ là hình) | [15 §1–2](15-sinh-dong-va-phan-hoi.md) | ✅ Đã chốt |
   | UI vertical slice (khay thần, nút cuộn, bản đồ mini, sổ tay tối giản, hiệu ứng thức dậy) | [10](10-giao-dien.md) | 💡 Đã đặc tả, chờ chơi thử |
   | Nhịp ×100, tầng tán (Sồi, Táo dại, Liễu) | [11](11-nhip-va-tang-tan.md) | 💡 Đã kiểm chứng |
 
@@ -33,7 +34,7 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 | 03 | [Hệ sinh thái](03-he-sinh-thai.md) | Mô phỏng thực vật, động vật, chuỗi thức ăn | 💡 Nháp |
 | 04 | [Quyền năng của thần](04-quyen-nang-than.md) | Cách người chơi tương tác | 💡 Nháp |
 | 05 | [Mở rộng thế giới](05-mo-rong-the-gioi.md) | Tiến trình, biome, mục tiêu cuối | 💡 Nháp |
-| 06 | [Câu hỏi mở](06-cau-hoi-mo.md) | Các quyết định cần chốt | ✅ Đã chốt hết vòng 2 |
+| 06 | [Câu hỏi mở](06-cau-hoi-mo.md) | Các quyết định cần chốt | ✅ Đã chốt hết vòng 5 (Q43–Q49) |
 | 07 | [Hệ sinh thái: đặc tả chi tiết](07-he-sinh-thai-chi-tiet.md) | Số liệu, công thức cho đồng cỏ (luật đổi 2026-10-23, một số kết quả đo bằng luật cũ) | 💡 Đã kiểm chứng bằng mô hình |
 | 08 | [Nhiều vùng & biome Ao](08-nhieu-vung-va-ao.md) | Hồi sinh 14 vùng, giá hồi sinh, Sức khoẻ vùng, biome Ao, nhịp kết game | 💡 Đã kiểm chứng bằng mô hình |
 | 09 | [Khoảnh khắc](09-khoanh-khac.md) | Loại bong bóng, điều kiện, phần thưởng, giới hạn hiển thị, chỉ báo ngoài màn hình | 💡 Đã đặc tả, chưa kiểm chứng |
@@ -42,11 +43,14 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 | 12 | [Môi trường sống](12-moi-truong-song.md) | Biome theo cột do cỏ phủ lan, đất hoang tự bị lấn, động vật tự đến theo điều kiện sống, Sóc (bỏ mời, bỏ hồi sinh) | 💡 Đã kiểm chứng bằng mô hình |
 | 13 | [Bầy đàn, lãnh thổ & nhịp sinh sản](13-bay-dan-va-sinh-san.md) | Thỏ, cá đi theo bầy; cáo, diệc, sóc giữ lãnh thổ; đi tới đích rồi nghỉ; sinh sản chậm lại, thú săn no lâu hơn | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
 | 14 | [Hang thỏ, né thú săn & rượt bắt](14-hang-tho-va-san-moi.md) | Mỗi hang một gia đình thỏ; con mồi tránh và chạy trốn về hang / cây; thú săn rượt nhanh và vồ | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
+| 15 | [Sinh động & phản hồi](15-sinh-dong-va-phan-hoi.md) | Phản hồi tức thì cho mưa / gieo / lấn đất, sinh vật trang trí, hành vi nhỏ khi nghỉ, khoảnh khắc M5 rút gọn theo nhịp ×100 | ✅ Đã chốt, đã đo tần suất khoảnh khắc |
+| 16 | [Nắn đất](16-nan-dat.md) | Đào / lấp từng ô nước ở bất kỳ đâu: ao động, môi trường tự sinh theo độ rộng, giá, thao tác | ✅ Đã chốt, chưa kiểm chứng bằng mô hình |
 | — | [`sim/ecosim.py`](sim/ecosim.py) | Mô hình Python dùng để kiểm chứng số liệu của file 07 | Công cụ |
 | — | [`sim/worldsim.py`](sim/worldsim.py) | Mô hình nhiều vùng cho file 08–09 | Công cụ |
 | — | [`sim/biomesim.py`](sim/biomesim.py) | Mô hình môi trường sống cho file 12 (biome theo cột, lấn đất hoang, động vật tự đến) | Công cụ |
 | — | [`sim/socialsim.py`](sim/socialsim.py) | Mô hình bầy đàn / lãnh thổ / nhịp sinh sản cho file 13 (dựa trên `biomesim.py`) | Công cụ |
 | — | [`sim/huntsim.py`](sim/huntsim.py) | Mô hình hang thỏ, né thú săn, rượt bắt cho file 14 (dựa trên `socialsim.py`) | Công cụ |
+| — | [`sim/momentsim.py`](sim/momentsim.py) | Đếm khoảnh khắc M5 rút gọn cho file 15 §3 (dựa trên `huntsim.py`, không đổi luật) | Công cụ |
 | — | [`sim/balance.json`](sim/balance.json) | **Nguồn số cân bằng duy nhất** cho `worldsim.py` và Unity (Tech Doc 03 §1). Đổi số ở đây | Dữ liệu |
 
 **Ký hiệu dùng trong tài liệu**
@@ -58,6 +62,12 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 
 | Ngày | Quyết định |
 |------|------------|
+| 2026-10-28 | ✅ **Bỏ Khách lạ 🦋** (Hươu sao, Rùa đầm, Cú mèo, quà lớn) sau thử tay: người chơi không cần. Khoảnh khắc còn 5 loại; `momentsim.py`: ~54 mỗi slice (1 mỗi 1.3 phút) ([15 §3.5](15-sinh-dong-va-phan-hoi.md)) |
+| 2026-10-27 | ✅ Hang thỏ chỉ đào trên đất: miệng hang và buồng ngủ (tới cột x + 2) không nằm trên nước hay đất hoang; hang cũ sai chỗ tự dời ([14 §2](14-hang-tho-va-san-moi.md)). ✅ **Q43–Q46 ([16 Nắn đất](16-nan-dat.md)):** đào ao mới ở bất kỳ đâu, mỗi lần 1 ô, môi trường tự sinh theo độ rộng; mở ngay, đào 150 / lấp 100; công cụ ⛰️ riêng; không giới hạn độ rộng. ✅ **Q47–Q49:** lấp hết ao thì cá rời đi nhẹ nhàng; môi trường tự sinh theo 16 §4; chỉ click từng ô |
+| 2026-10-27 | ✅ **Q39–Q42:** 💧 hồi lại 30 phút, giữ giãn cách 60 giây, khách lạ ở vùng Khoẻ (≥ 60), chưa đổi luật loài đến. Đo lại: ~54 khoảnh khắc mỗi slice (1 mỗi 1.2 phút), 💧 ~13, 🦋 ~2 |
+| 2026-10-27 | 💡 Đo khoảnh khắc bằng `momentsim.py` ([15 §3.7](15-sinh-dong-va-phan-hoi.md#37-tần-suất-đo-được-simmomentsimpy)): ~62 mỗi slice (1 mỗi 1.1 phút thật), quà không làm kết sớm hơn; 💧 quá dày (~21, 68% mùa Hạ), 🦋 quá hiếm (~1). Chờ Q39–Q42 |
+| 2026-10-27 | ✅ **Q35–Q38:** giữ cả 9 loại trang trí, có né con trỏ; khoảnh khắc sống 8 phút, giãn cách 60 giây; thêm khách Cú mèo cho Rừng; chưa đổi điều kiện loài đến, đo trước. GDD 15 chốt |
+| 2026-10-27 | 💡 **Đề xuất [15](15-sinh-dong-va-phan-hoi.md)** (sau chơi thử: chờ lâu mới thấy biến chuyển, chưa sinh động): phản hồi tức thì, sinh vật trang trí và hành vi nhỏ (chỉ là hình), khoảnh khắc M5 rút gọn với số mới cho nhịp ×100 (sống 8 phút, giãn cách 60 giây). Chờ Q35–Q38 |
 | 2026-10-26 | ✅ Hang thỏ **đào sâu, vẽ mặt cắt** (thấy đường hầm, buồng ngủ, thỏ nằm bên trong); **mỗi hang tối đa 4 con**, hang cách nhau ≥ 6 cột, lứa không vượt chỗ trong hang ([14 §2.1, §5, §6.1](14-hang-tho-va-san-moi.md)) |
 | 2026-10-25 | ✅ Thỏ ngủ **trong hang**, sóc ngủ trên cây là luật mô phỏng (không ăn, không bị vồ, đói × 0.3); cáo no 15 giờ mp sau mỗi mồi, thức 15h–9h. Kết 15/16, ~62 con chết / ngày mp ([14 §3b](14-hang-tho-va-san-moi.md)) |
 | 2026-10-25 | ✅ **Q34:** cảnh vồ mồi: bụi cỏ tung lên, con mồi biến mất, cáo thong thả về hang (thay phần săn của Q6). GDD 14 chốt |

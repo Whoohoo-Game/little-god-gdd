@@ -46,5 +46,24 @@ Các quyết định cần chốt trước khi làm prototype gameplay. Mỗi c�
 
 - ✅ **Q34.** Cảnh vồ mồi: cáo vồ, bụi cỏ tung lên, con mồi biến mất, cáo thong thả về hang ([14 §5](14-hang-tho-va-san-moi.md#5-hiển-thị)). Thay phần săn mồi của Q6.
 
+- ✅ **Q35.** Giữ cả 9 loại sinh vật trang trí; bướm, chuồn chuồn, chim sẻ né con trỏ ([15 §2.1](15-sinh-dong-va-phan-hoi.md#21-sinh-vật-trang-trí-chỉ-là-hình)).
+- ✅ **Q36.** Khoảnh khắc rút gọn: sống 8 phút, giãn cách nhóm A 60 giây ([15 §3.3](15-sinh-dong-va-phan-hoi.md#33-thời-gian-phút-thật)).
+- ~~✅ **Q37.** Thêm khách lạ Cú mèo cho Rừng~~ (bỏ cùng Khách lạ, 2026-10-28) ([15 §3.5](15-sinh-dong-va-phan-hoi.md#35-khách-lạ)).
+- ✅ **Q38.** Chưa đổi điều kiện loài đến; đo tần suất trước rồi quyết ([15 §3.7](15-sinh-dong-va-phan-hoi.md#37-tần-suất-đo-được-simmomentsimpy)).
+
+- ✅ **Q39.** 💧 Vùng khô hồi lại mỗi vùng **30 phút** (thay 10 phút).
+- ✅ **Q40.** Giữ giãn cách khoảnh khắc nhóm A **60 giây**.
+- ~~✅ **Q41.** Khách lạ xuất hiện ở vùng **Khoẻ** (Sức khoẻ ≥ 60) thay vì Cân bằng; đo lại: ~2 lần mỗi slice ([15 §3.7](15-sinh-dong-va-phan-hoi.md#37-tần-suất-đo-được-simmomentsimpy)).~~ (bỏ cùng Khách lạ, 2026-10-28)
+- ✅ **Q42.** Chưa đổi luật loài đến; khoảng trống 10 phút đầu lấp bằng phần hình ([15 §1–2](15-sinh-dong-va-phan-hoi.md)).
+
+- ✅ **Q43.** Đào ao mới ở bất kỳ đâu, mỗi lần 1 ô; môi trường ao tự sinh theo độ rộng ([16](16-nan-dat.md)).
+- ✅ **Q44.** Nắn đất mở ngay trong slice; đào 150, lấp 100 Sinh khí mỗi ô.
+- ✅ **Q45.** Công cụ ⛰️ riêng trong khay thần.
+- ✅ **Q46.** Không giới hạn độ rộng ao.
+
+- ✅ **Q47.** Lấp ô nước cuối cùng của ao: cá rời đi nhẹ nhàng, diệc bay đi ([16 §5](16-nan-dat.md)).
+- ✅ **Q48.** Môi trường ao tự sinh theo độ rộng như [16 §4](16-nan-dat.md).
+- ✅ **Q49.** Nắn đất chỉ click từng ô.
+
 ## Đang mở
 *Hiện chưa có câu hỏi nào đang mở.*

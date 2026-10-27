@@ -15,6 +15,8 @@
 | 06 | [Môi trường sống](06-moi-truong-song.md) | GDD 12 → code: biome theo cột, lấn đất hoang, động vật tự đến, Sóc, kết game mới, save v3 | ✅ M4c xong |
 | 07 | [Bầy đàn & lãnh thổ](07-bay-dan.md) | GDD 13 → code: bầy, hang, đi tới đích rồi nghỉ, sinh sản chậm lại, vai trò theo vùng sống, save v4 | ✅ Xong |
 | 08 | [Hang thỏ & săn mồi](08-hang-va-san-moi.md) | GDD 14 → code: hang thỏ, con mồi né và trốn, thú săn rượt và vồ, bụi cỏ tung lên, save v5 | ✅ Xong code, chờ thử tay |
+| 09 | [Sinh động, phản hồi & khoảnh khắc rút gọn](09-sinh-dong-va-phan-hoi.md) | GDD 15 → code: phản hồi tức thì, sinh vật trang trí, hành vi nhỏ, `MomentDirector` 6 loại, `balance.json → moments` mới | ✅ Xong code, chờ thử tay |
+| 10 | [Nắn đất](10-nan-dat.md) | GDD 16 → code: ao động (`World.Ponds`), đào / lấp từng ô, môi trường ao tự sinh, công cụ ⛰️, save v6 | ✅ Xong code, chờ thử tay |
 
 **Ký hiệu:** dùng chung với GDD (✅ đã chốt · 💡 đề xuất · ❓ cần quyết định). ⚠️ là rủi ro kỹ thuật.
 

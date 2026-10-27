@@ -18,6 +18,8 @@ Người chơi sẽ thấy cảnh nhân quả rõ ràng: cáo xuất hiện thì
 - ↻ **Mỗi hang tối đa 4 con** (2026-10-26; trước: 8 như bầy ở 13). Con non sinh ra thuộc gia đình của mẹ. Hang còn bao nhiêu chỗ thì lứa chỉ có chừng ấy con (đang 3 con mà đẻ lứa 2 thì chỉ được 1).
 - **Tách nhà:** gia đình đủ 4 con thì một nửa số con trưởng thành trẻ nhất (2 con) đi **đào hang mới** ở bãi cỏ tốt nhất, cách mọi hang khác **≥ 6 cột** (trước: 8). Không còn chỗ thì cả nhà ở lại và không đẻ thêm.
 
+- ✅ **Hang chỉ trên đất (2026-10-27, sau thử tay):** miệng hang và buồng ngủ (lấn sang phải tới cột x + 2) phải là đất sống, không phải nước hay đất hoang. Chỗ cỏ tốt nhất không đào được thì đào ở chỗ hợp lệ gần nhất (≤ 8 cột); không có thì ở lại hang cũ / chưa tách nhà. Hang đang nằm sai chỗ (save cũ, đất đổi thành nước) thì nhà dời sang chỗ gần nhất; hang bỏ trống sai chỗ thì sập. `huntsim.py survey 16`: kết 15/16, trung vị 1.2 giờ thật (trước 14/16, 1.1).
+
 ### 2.2 Dời hang
 - Cả nhà không còn dời chỗ từng cột như bầy ở 13. Thay vào đó, khi **một nửa gia đình đói liên tục 60 phút mô phỏng** (~36 giây thật), cả nhà **bỏ hang, đi đào hang mới** ở bãi cỏ tốt nhất trong 12 cột (phải cách hang cũ ≥ 3 cột).
 - **Hang bỏ trống** vẫn còn **3 ngày mô phỏng** (~43 phút thật) rồi sập. Gia đình nào đào hang trong vòng 3 cột của một hang bỏ trống thì **dùng lại** hang đó.

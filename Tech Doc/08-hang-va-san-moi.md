@@ -73,3 +73,9 @@
 - `AnimalView`: thỏ có `Hidden` đi tới miệng hang rồi xuống chỗ nằm của nó trong buồng (`WorldView.BurrowSlot`: thứ tự trong `Herd.Members`, 0–3, tâm chỗ nằm ở 8 / 14 / 20 / 26 px của sprite, miệng hang ở 5.5 px, đáy buồng sâu 15 px); vẫn hiện (bỏ "mờ đi, nhú tai"). Ngủ thì cuộn lại và có "z". Hết `Hidden` thì đi ngược lên miệng hang rồi đi như thường.
 - Kết quả: 90 EditMode (+1 Explicit) và 3 PlayMode (+1 Explicit) xanh; thêm `Litter_NeverOverfillsTheBurrow`, test tách nhà đổi sang 4 con. Chưa nhìn hang mặt cắt trên bản build.
 
+
+## 8. Hang chỉ trên đất (sau thử tay, 2026-10-27)
+- Lỗi: `Dig` đào ngay ở cột cỏ tốt nhất hoặc dùng lại hang bỏ trống gần đó mà không xét nền, nên có hang nằm trên cột nước; buồng ngủ vẽ lấn sang phải tới cột x + 2 nên hang ở bờ ao cũng chìm một nửa.
+- `World.BurrowSite(x)`: cột x, x + 1, x + 2 đều là đất sống. `Dig` chỉ dùng lại hang bỏ trống hợp lệ, không thì `NearestBurrowSite` (≤ 8 cột); không có thì trả −1: dời hang thì ở lại, tách nhà thì chưa tách. Nhà mới tới (`HerdFor`) đào tại chỗ nhưng qua `NearestBurrowSite`.
+- Đầu mỗi bước (`BeginHunting`): hang bỏ trống sai chỗ thì sập; nhà có hang sai chỗ (save cũ, hoặc ô đất vừa bị đào thành nước, GDD 16) dời sang chỗ hợp lệ gần nhất.
+- `huntsim.py` sửa theo: `survey 16` kết 15/16, trung vị 1.2 giờ thật (trước 14/16, 1.1). Test: `Burrow_IsNeverOverWater_AndOldOnesMoveOntoLand`.

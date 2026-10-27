@@ -9,6 +9,8 @@
 |----------|----------|
 > ↻ **2026-10-24:** mọi thời gian trong file này (thời gian sống, mờ dần, chờ lại, giãn cách, tỉ lệ mỗi phút) là **phút thật**; điều kiện sinh thái đọc từ mô phỏng chạy nhịp ×100 ([11 §1.3](11-nhip-va-tang-tan.md#13-khoảnh-khắc-và-ui)). Khám phá 🌱 có thêm Sồi, Táo dại, Liễu ([11 §2.4](11-nhip-va-tang-tan.md#24-mở-khoá--q24-khám-phá-)).
 
+> ↻ **2026-10-27 ([15 §3](15-sinh-dong-va-phan-hoi.md#3-khoảnh-khắc-m5-rút-gọn)):** 💡 đề xuất làm trước một **bản rút gọn** (6 loại) với số mới cho nhịp ×100: số tần suất, thời gian sống, giãn cách của file này được viết cho nhịp 8 giờ/ngày nên ở slice ~1.3 giờ thật chỉ còn 2–3 khoảnh khắc.
+
 > ↻ **2026-10-24 ([12](12-moi-truong-song.md)):** bỏ 💌 Lời mời và 🌿 Sẵn sàng hồi sinh (không còn mời, không còn hồi sinh); thêm ✨ **Loài mới** (lần đầu một loài tự đến) và ✨ **Biome mới thành hình**. Các khoảnh khắc còn lại giữ nguyên.
 
 | Mỗi lần liếc (10–30 phút) thấy **ít nhất một điều mới** | ~2 khoảnh khắc mỗi giờ trên toàn thế giới (§6) |

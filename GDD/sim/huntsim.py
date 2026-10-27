@@ -233,17 +233,29 @@ class HuntWorld(ss.SocialWorld):
             h.hungry_min = 0
             best, f = self.best_food(h, h.anchor)
             if f > 0 and abs(best - h.anchor) >= BURROW["relocateMin"]:
+                site = self.dig(best)
+                if site is None:
+                    continue            # quanh bãi cỏ đó không có đất đào hang: ở lại
                 self.leave_burrow(h.anchor)
-                h.anchor = self.dig(best)
+                h.anchor = site
                 self.relocations += 1
 
+    def burrow_site(self, x):
+        """Miệng hang và buồng ngủ (tới x + 2, mặt cắt GDD 14 §5) đều là đất sống, không phải nước hay đất hoang."""
+        return all(0 <= i < len(self.cols) and self.cols[i].alive and self.cols[i].ground == "land" for i in range(x, x + 3))
+
     def dig(self, x):
-        """Dùng lại hang bỏ trống gần đó nếu có, không thì đào hang mới tại x."""
+        """Dùng lại hang bỏ trống gần đó nếu có, không thì đào hang mới tại x hoặc ở chỗ đào được gần nhất (≤ 8 cột).
+        None nếu quanh đó không có đất."""
         for i, (b, _) in enumerate(self.empty_burrows):
-            if abs(b - x) <= BURROW["reuseRange"]:
+            if abs(b - x) <= BURROW["reuseRange"] and self.burrow_site(b):
                 del self.empty_burrows[i]
                 return b
-        return x
+        for d in range(9):
+            for t in (x - d, x + d):
+                if self.burrow_site(t):
+                    return t
+        return None
 
     def leave_burrow(self, x):
         self.empty_burrows.append((x, self.minute))
@@ -253,7 +265,9 @@ class HuntWorld(ss.SocialWorld):
         super().split_herds()
         for h in self.herds:
             if id(h) not in before and h.name == RABBIT:
-                h.anchor = self.dig(h.anchor)
+                site = self.dig(h.anchor)
+                if site is not None:
+                    h.anchor = site
 
     def animals_step(self, s):
         self.alert()

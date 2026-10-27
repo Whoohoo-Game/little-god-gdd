@@ -131,7 +131,9 @@
   "powers": {
     "rainCost": 30,
     "rainRadius": 3,
-    "rainMaxColumns": 21
+    "rainMaxColumns": 21,
+    "digCost": 150,
+    "fillCost": 100
   },
   "environment": {
     "evaporation": [
@@ -679,21 +681,29 @@
     250000
   ],
   "moments": {
-    "lifetimeMinutes": 30,
-    "fadeLastMinutes": 3,
-    "retryMinutes": 120,
+    "_about": "GDD 15 §3 (khoảnh khắc rút gọn). Thời gian tính bằng phút thật (GDD 11 §1.3), trừ gift*Minutes là phút mô phỏng thu nhập.",
+    "lifetimeMinutes": 8,
+    "fadeLastMinutes": 2,
+    "retryMinutes": 2,
     "overgrazedCooldownMinutes": 360,
-    "giftMinutes": 3,
+    "giftMinutes": 33,
     "giftMin": 5,
-    "bigGiftMinutes": 20,
-    "bigGiftMin": 20,
-    "newGiftMinGapMinutes": 10,
+    "newSpeciesGiftMinutes": 100,
+    "newSpeciesGiftMin": 10,
+    "newGiftMinGapMinutes": 1,
+    "birthCooldownMinutes": 5,
+    "arriveCooldownMinutes": 5,
+    "droughtCooldownMinutes": 30,
     "maxInView": 3,
     "maxPerZone": 1,
     "giftSeedGapMinutes": 180,
-    "visitorChancePerMinute": 0.0020833333333333333,
-    "visitorMinGapMinutes": 240,
-    "visitorDurationMinutes": 10,
+    "rainCloud": {
+      "_about": "GDD 15 §3.4b: mây thay bong bóng 💧. Giá = powers.rainCost. Tốc độ = 25 × mây nền (SkyView 0.04 cột/giây = 2.4 cột/phút). Mây chờ sống lifetimeSeconds giây thật.",
+      "width": 10,
+      "columnsPerRealMinute": 60,
+      "lifetimeSeconds": 10,
+      "rainSeconds": 15
+    },
     "birthRecoveringMax": 4,
     "discover": {
       "flower": {
