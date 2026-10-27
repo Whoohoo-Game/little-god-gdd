@@ -62,6 +62,7 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 
 | Ngày | Quyết định |
 |------|------------|
+| 2026-10-28 | ✅ **Hai loài không đi chung ([14 §3c](14-hang-tho-va-san-moi.md)):** con mồi đi bộ tránh xa thú săn no (≥ 4 / 3 cột); cáo no không đi vào giữa bầy mồi; cáo đói bò rình 1 cột/phút, mồi chỉ nhận ra khi ≤ 2 cột; hang cáo cách bầy mồi ≥ 4 cột. `huntsim.py`: kết 15/16, trung vị 1.0 giờ thật |
 | 2026-10-28 | ✅ **Bỏ Khách lạ 🦋** (Hươu sao, Rùa đầm, Cú mèo, quà lớn) sau thử tay: người chơi không cần. Khoảnh khắc còn 5 loại; `momentsim.py`: ~54 mỗi slice (1 mỗi 1.3 phút) ([15 §3.5](15-sinh-dong-va-phan-hoi.md)) |
 | 2026-10-27 | ✅ Hang thỏ chỉ đào trên đất: miệng hang và buồng ngủ (tới cột x + 2) không nằm trên nước hay đất hoang; hang cũ sai chỗ tự dời ([14 §2](14-hang-tho-va-san-moi.md)). ✅ **Q43–Q46 ([16 Nắn đất](16-nan-dat.md)):** đào ao mới ở bất kỳ đâu, mỗi lần 1 ô, môi trường tự sinh theo độ rộng; mở ngay, đào 150 / lấp 100; công cụ ⛰️ riêng; không giới hạn độ rộng. ✅ **Q47–Q49:** lấp hết ao thì cá rời đi nhẹ nhàng; môi trường tự sinh theo 16 §4; chỉ click từng ô |
 | 2026-10-27 | ✅ **Q39–Q42:** 💧 hồi lại 30 phút, giữ giãn cách 60 giây, khách lạ ở vùng Khoẻ (≥ 60), chưa đổi luật loài đến. Đo lại: ~54 khoảnh khắc mỗi slice (1 mỗi 1.2 phút), 💧 ~13, 🦋 ~2 |

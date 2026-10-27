@@ -1048,6 +1048,9 @@
     "predators": {
       "fox": {
         "chaseSpeed": 4,
+        "stalkSpeed": 1,
+        "stalkNotice": 2,
+        "fedKeepAway": 4,
         "sight": 12,
         "pounce": 0.9,
         "chaseMaxMinutes": 15,

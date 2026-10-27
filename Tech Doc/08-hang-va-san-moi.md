@@ -79,3 +79,14 @@
 - `World.BurrowSite(x)`: cột x, x + 1, x + 2 đều là đất sống. `Dig` chỉ dùng lại hang bỏ trống hợp lệ, không thì `NearestBurrowSite` (≤ 8 cột); không có thì trả −1: dời hang thì ở lại, tách nhà thì chưa tách. Nhà mới tới (`HerdFor`) đào tại chỗ nhưng qua `NearestBurrowSite`.
 - Đầu mỗi bước (`BeginHunting`): hang bỏ trống sai chỗ thì sập; nhà có hang sai chỗ (save cũ, hoặc ô đất vừa bị đào thành nước, GDD 16) dời sang chỗ hợp lệ gần nhất.
 - `huntsim.py` sửa theo: `survey 16` kết 15/16, trung vị 1.2 giờ thật (trước 14/16, 1.1). Test: `Burrow_IsNeverOverWater_AndOldOnesMoveOntoLand`.
+
+## 9. Hai loài không đi chung: tránh xa, rình mồi (GDD 14 §3c, 2026-10-28)
+- `balance.json → hunting.predators.fox`: `stalkSpeed` 1, `stalkNotice` 2, `fedKeepAway` 4 (`PredatorRule`; 0 = tắt). Diệc không có nên giữ như cũ.
+- `Animal.Avoid` (thú săn no đang né, tính lại mỗi bước), `Animal.Avoiding` và `Animal.Stalking` (lưu: save `"avoid"`, `"stalk"`; thiếu thì false) vì bước sau dùng chúng.
+- `BeginHunting`: mồi nhận ra thú săn đói ở `AlertRange`, hoặc `StalkNotice` nếu thú săn đó đang rình. Không bị đe doạ thì `Avoid` = thú săn no gần nhất (ăn được nó) trong `Wary` cột; đang né thì giữ né tới khi thú săn rời xa cả chỗ của nó (`|thú săn − tâm| ≥ bán kính + Wary`).
+- `FleeOrChase`: con mồi có `Avoid` đi bộ (`social.speed`) tới `tâm ± (bán kính + 2)` phía xa thú săn, tới nơi thì đứng. Thú săn có mồi: `StalkSpeed` khi `Stalking`, `ChaseSpeed` khi mồi đã chạy.
+- `HuntChase`: `Stalking = mồi ≠ null && mồi.Alarm ≠ thú săn này`; mệt, no, mất mồi thì false.
+- `PickGoal` của thú săn no có `FedKeepAway`: thử 6 lần tìm đích cách mọi con mồi của nó ≥ `FedKeepAway` cột. `FreeDenSite`: bỏ chỗ có con mồi trong `FedKeepAway − 1` cột.
+- **Hình:** cáo đang rình hạ thấp người (co dọc 0.8), đi chậm, không nảy.
+- Tham chiếu: `huntsim.py` (`notice`, `alert`, `move`, `pick_goal`, `den_ok`), số ở GDD 14 §6.2.
+- **Kết quả:** 114 EditMode (+1 Explicit) và 4 PlayMode xanh. Thêm `FedFox_RabbitsWalkAway`, `HungryFox_StalksSlowly_Unnoticed` (thay `HungryFox_ChasesAtDoubleSpeed`: cáo đói giờ bò rình trước khi rượt). `SocialTests.FoxPair_SharesADen…` đổi chỗ thỏ sang nửa bãi để cáo có rìa bãi mồi làm hang. `WorldStatsTests` vẫn trong biên so với `huntsim.py`. Chưa thử tay.

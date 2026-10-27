@@ -37,6 +37,24 @@ Người chơi sẽ thấy cảnh nhân quả rõ ràng: cáo xuất hiện thì
 - **Trốn trong hang thì không ăn.** Đây là cái giá của sợ hãi: vùng nhiều cáo thì thỏ gầy hơn.
 - Thỏ chưa có hang (vừa tới, chưa có gia đình) hoặc sóc chưa có cây thì chạy ra xa thú săn.
 
+## 3c. Hai loài không đi chung: tránh xa, rình mồi (✅ 2026-10-28, sau thử tay)
+Thử tay: thỏ và cáo no đi lẫn vào nhau như bạn bè. Luật mới (người chơi duyệt cả ba):
+
+| Ai | Khi | Làm gì |
+|----|-----|--------|
+| **Con mồi** (Thỏ, Sóc) | Thú săn ăn được nó, đang **no** (không rình), trong `wary` cột (thỏ 4, sóc 3) | **Đi bộ tránh xa** (tốc độ đi thường) tới khi cách ≥ `wary` cột. Không chạy, không trốn, vẫn ăn được |
+| **Thú săn no** (Cáo) | Chọn chỗ đi tiếp | Tránh chỗ cách con mồi của nó < `fedKeepAway` (4) cột: không đi vào giữa bầy mồi |
+| **Thú săn** (Cáo) | Làm hang (GDD 13 §3.3) | ✅ (duyệt 2026-10-28) Hang cách mọi con mồi của nó ≥ `fedKeepAway` (4) cột: vẫn chọn nơi nhiều mồi trong lãnh thổ nhất, nhưng ở rìa bãi mồi chứ không giữa bãi |
+| **Thú săn đói** (Cáo) có mồi trong tầm nhìn (12 cột) | Mồi **chưa phát hiện** | **Bò rình**: hạ thấp người, tiến `stalkSpeed` (1) cột / phút mp. Mồi chỉ nhận ra cáo đang bò rình khi cách ≤ `stalkNotice` (2) cột (thay 4) |
+| | Tới tầm vồ (≤ tốc độ rượt + 1 = 5 cột) | Lao ra và vồ như §4 |
+| | Mồi đã phát hiện và chạy | Rượt `chaseSpeed` (4) như §4 |
+
+- **Cách né (cài đặt):** thú săn no lại gần thì con mồi đi bộ thẳng tới phía bên kia chỗ của nó (chỗ của bầy / hang ± bán kính + 2 cột, xa thú săn), tới nơi thì đứng đó; chỉ quay về khi thú săn đã rời xa cả chỗ của nó (≥ bán kính + `wary`). Né từng bước một làm thỏ lắc qua lắc lại.
+- Cáo đói chưa thấy mồi nào thì đi như thường; mồi nhận ra cáo đói ở `alertRange` (4) và chạy về hang như §3.
+- Cá, Diệc giữ như cũ (ao hẹp, cá không tránh được).
+- Số ở `balance.json → hunting.predators.fox` (`stalkSpeed`, `stalkNotice`, `fedKeepAway`) và `hunting.prey.*.wary`.
+- Kiểm chứng: §6.2.
+
 ## 3b. Ngủ trong hang (✅ 2026-10-25)
 Ngoài giờ thức của loài (GDD 11 §1.5; mỗi con lệch tới 0.7 giờ trong ngày):
 - **Thỏ đi bộ về hang và ngủ trong hang**; **sóc về cây** của nó. Đang ngủ thì như đang trốn: **không ăn, thú săn không vồ được**.
@@ -121,6 +139,19 @@ Thông số ở `balance.json` → `hunting` (`burrow`, `prey`, `predators`).
 
 - Giữ hang cách 8 cột thì không đủ chỗ đào thêm hang: thỏ chỉ còn ~18. Hang cách 5 cột thì đủ thỏ (~29) nhưng cáo chết đói nhiều hơn. Chọn **6 cột**.
 - Cả 2 seed không kết đều vì **diệc không bao giờ đến ao** (giống seed hỏng của các bản trước), không liên quan tới thỏ.
+
+### 6.2 Tránh xa, rình mồi (§3c, 2026-10-28, `huntsim.py survey 16`)
+| Chỉ số (trung bình 16 seed) | Trước §3c | Ba luật đã duyệt | **+ hang cáo ở rìa bãi mồi (chốt)** |
+|-----------------------------|-----------|------------------|------------------------------------|
+| Kết game | 15/16, trung vị 1.2 giờ thật (0.5–3.4) | 16/16, 1.3 (0.6–3.2) | **15/16, 1.0 (0.6–2.1)** |
+| Thỏ trung bình | 25.1 | 25.2 | **25.0** |
+| Chết đói / ngày mp | 26.7 | 32.7 | **29.5** |
+| Bị săn / ngày mp | 25.0 | 27.8 | **24.4** |
+| Quay đầu / con / phút thật (mọi loài) | 3.0 | 4.8 | **4.1** |
+
+- Riêng thỏ quay đầu ~1 → ~3.5 lần / phút thật: giá của việc né. Hang cáo giữa bãi thỏ (luật cũ GDD 13) làm thỏ né suốt (~5 lần / phút), nên hang cáo dời ra rìa.
+- Cột chốt đo sau khi cho cáo đang mệt thôi tính là đang rình (khớp C#). Lúc hỏi duyệt (chưa sửa chi tiết này): 16/16, 1.1 giờ, chết đói 28.6, bị săn 26.8, quay đầu 4.0.
+- Chạy lại: `python3 Docs/GDD/sim/huntsim.py survey 16` (luật cũ để so: thêm `noavoid`).
 
 ## 7. Câu hỏi cho người thiết kế
 - ✅ **Q34.** Cảnh vồ: cáo vồ, **bụi cỏ tung lên**, con mồi biến mất, cáo thong thả về hang (thay phần "săn mồi chỉ là đuổi ra khỏi màn hình" của Q6). Không máu, không xác.

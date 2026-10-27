@@ -25,6 +25,8 @@ SLEEPERS = {NAME[k]: v for k, v in SLEEP.get("inRefuge", {}).items()}   # loài 
 SLEEP_LAG = SLEEP.get("lagHours", 0)
 DAY_NIGHT = ws.B["time"]["dayNightMinutes"]
 SLEEP_ON = True
+AVOID_MARGIN = 2    # GDD 14 §3c: độ trễ của việc né
+AVOID_ON = True     # GDD 14 §3c: tránh xa, rình mồi ("noavoid" để so với luật cũ)
 
 
 def day_hour(minute):
@@ -50,6 +52,7 @@ class HuntWorld(ss.SocialWorld):
     def init_hunt(self, a):
         if not hasattr(a, "hidden"):
             a.hidden, a.hide_left, a.alarm, a.target, a.chase_left, a.tired = False, 0, None, None, 0, 0
+            a.avoid, a.stalking = None, False
             a.sleeping, a.uid = False, self.next_uid
             self.next_uid += 1
 
@@ -71,15 +74,29 @@ class HuntWorld(ss.SocialWorld):
         return center, radius
 
     # ---- con mồi: cảnh giác, chạy về chỗ trú -----------------------------------------
+    def notice(self, h, p):
+        """Tầm con mồi nhận ra thú săn đói (GDD 14 §3c): đang bò rình thì chỉ ≤ stalkNotice cột."""
+        k = PRED[h.name]
+        return k["stalkNotice"] if getattr(h, "stalking", False) and "stalkNotice" in k else p["alertRange"]
+
     def alert(self):
-        hunters = [a for a in self.animals if a.name in PRED and not a.gone and a.hunger < HUNGRY_BELOW]
+        all_hunters = [a for a in self.animals if a.name in PRED and not a.gone]
+        hunters = [h for h in all_hunters if h.hunger < HUNGRY_BELOW]
         for a in self.animals:
             self.init_hunt(a)
             p = PREY.get(a.name)
             if not p:
                 continue
-            near = [h for h in hunters if a.name in h.spec["prey_all"] and abs(h.x - a.x) <= p["alertRange"]]
+            near = [h for h in hunters if a.name in h.spec["prey_all"] and abs(h.x - a.x) <= self.notice(h, p)]
             a.alarm = min(near, key=lambda h: abs(h.x - a.x)) if near else None
+            # §3c: thú săn no (không rình) trong wary cột thì đi bộ tránh xa
+            # đã né thì chỉ thôi né khi thú săn đã rời xa cả chỗ của mình (hang ± bán kính + wary), để không bị kéo về ngay
+            # chỗ thú săn rồi lại né, lắc qua lắc lại
+            avoiding = getattr(a, "avoid", None) is not None
+            center, radius = self.home_of(a) if avoiding else (a.x, 0)
+            fed = [h for h in all_hunters if h.hunger >= HUNGRY_BELOW and a.name in h.spec["prey_all"]
+                   and (abs(h.x - a.x) < p["wary"] or (avoiding and abs(h.x - center) < radius + p["wary"]))] if p["wary"] and AVOID_ON else []
+            a.avoid = min(fed, key=lambda h: abs(h.x - a.x)) if fed and not a.alarm else None
             a.sleeping = self.asleep(a)
             if a.hidden:
                 if a.alarm or a.sleeping:       # GDD 14 §3b: ngủ trong hang tới sáng
@@ -91,6 +108,15 @@ class HuntWorld(ss.SocialWorld):
             if a.name == RABBIT:
                 self.rabbit_minutes += 1
                 self.hidden_minutes += a.hidden
+
+    def den_ok(self, name, x):
+        """§3c: thú săn làm hang cách mọi con mồi của nó ≥ fedKeepAway cột (không làm hang giữa bãi mồi)."""
+        k = PRED.get(name)
+        if k and "fedKeepAway" in k and AVOID_ON and self.by_name.get(name):
+            prey = self.by_name[name][0].spec["prey_all"]
+            if any(abs(r.x - x) < k["fedKeepAway"] for n in prey for r in self.by_name.get(n, ()) if not r.gone):
+                return False
+        return super().den_ok(name, x)
 
     def refuge(self, a):
         """Chỗ trú: thỏ về hang của gia đình, sóc về cây của nó, cá ra đầu ao xa thú săn nhất; None nếu không có."""
@@ -134,16 +160,40 @@ class HuntWorld(ss.SocialWorld):
                 step = min(p["fleeSpeed"], abs(to - a.x))
                 a.goal, a.rest = None, 0
                 return a.x + (step if to > a.x else -step)
+            if a.avoid is not None:
+                # §3c: thú săn no lại gần: đi bộ thẳng tới phía bên kia chỗ của mình (xa thú săn), tới nơi thì nghỉ
+                lo, hi = self.bounds(a)
+                center, radius = self.home_of(a)
+                side = 1 if a.x >= a.avoid.x else -1
+                a.goal = max(lo, min(hi, center + side * (radius + AVOID_MARGIN)))
+                if a.x == a.goal:
+                    a.rest = 0
+                    return a.x
+                return a.x + (1 if a.goal > a.x else -1) * min(ss.KIND[a.name]["speed"], abs(a.goal - a.x))
         if a.name in PRED and a.target is not None:
             t = a.target
             gap = abs(t.x - a.x)
-            step = min(PRED[a.name]["chaseSpeed"], max(0, gap - 1)) if gap > 1 else 0
+            k = PRED[a.name]
+            # §3c: mồi chưa phát hiện thì bò rình chậm; mồi đã chạy thì rượt
+            speed = k["stalkSpeed"] if a.stalking else k["chaseSpeed"]
+            step = min(speed, max(0, gap - 1)) if gap > 1 else 0
             a.goal, a.rest = None, 0
             return a.x + (step if t.x > a.x else -step)
         return super().move(a)
 
     def pick_goal(self, a, center, radius):
         p = PREY.get(a.name)
+        k = PRED.get(a.name)
+        if k and "fedKeepAway" in k and AVOID_ON and a.hunger >= HUNGRY_BELOW:
+            # §3c: thú săn no không đi vào giữa bầy mồi
+            lo, hi = self.bounds(a)
+            prey = [r.x for n in a.spec["prey_all"] for r in self.by_name.get(n, ()) if not r.gone]
+            goal = center
+            for _ in range(6):
+                goal = max(lo, min(hi, center + self.rng.randint(-radius, radius)))
+                if not any(abs(goal - x) < k["fedKeepAway"] for x in prey):
+                    break
+            return goal
         if not p or not p["wary"]:
             return super().pick_goal(a, center, radius)
         # con mồi tránh chọn chỗ gần thú săn (kể cả thú săn đang no)
@@ -175,8 +225,10 @@ class HuntWorld(ss.SocialWorld):
         if a.tired > 0:
             a.tired -= 1
             a.target = None
+            a.stalking = False
         elif a.hunger >= HUNGRY_BELOW:
             a.target = None
+            a.stalking = False
         else:
             in_range = [r for r in prey_all if not r.gone and abs(r.x - a.x) <= sp["range"]]
             if len(in_range) <= ws.LAST_PAIR:
@@ -188,6 +240,7 @@ class HuntWorld(ss.SocialWorld):
                     t = min(seen, key=lambda r: abs(r.x - a.x)) if seen else None
                     a.chase_left = k["chaseMaxMinutes"]
                 a.target = t
+                a.stalking = t is not None and "stalkSpeed" in k and AVOID_ON and getattr(t, "alarm", None) is not a
                 if t is not None:
                     gap = abs(t.x - a.x)
                     if gap <= k["chaseSpeed"] + 1:
@@ -331,6 +384,7 @@ if __name__ == "__main__":
     seeds = next((int(a) for a in args[1:] if a.isdigit() and a != "13"), 8)
     hunting = "13" not in args[1:]
     SLEEP_ON = "nosleep" not in args
+    AVOID_ON = "noavoid" not in args
     if hunting:
         use_hunting()
     else:
