@@ -70,7 +70,7 @@ Giữ đúng thứ tự của `worldsim.py` `World.step()`. Đổi thứ tự s�
 | Hồi sinh | Không có | `ReviveCost` (giảm giá theo Sức khoẻ vùng kề), `TryRevive`, mầm khởi đầu (08 §4) | Vừa |
 | Mùa | `Minute / 1440` | Đầu vào từ lịch (01 §4) | Nhỏ |
 | Ngẫu nhiên | `System.Random` | PCG32 lưu được | Nhỏ |
-| Khám phá cây | Gieo được mọi loài | Chỉ gieo loài đã khám phá; `Discover(plant)` gọi từ khoảnh khắc 🌱 (GDD 09 §3.2) | Nhỏ |
+| Khám phá cây | Gieo được mọi loài | ✅ 2026-10-28 (GDD 04 §3): `KnowSowablePlants()` thêm mọi cây có `sowCost` vào `Discovered` khi tạo thế giới và khi đọc save; ~~khoảnh khắc 🌱~~ bỏ | Nhỏ |
 | Mưa người chơi | Bán kính cố định | Theo bề rộng kéo: `30 × ⌈n/7⌉`, tối đa 21 cột (GDD 10 §3.3) | Nhỏ |
 | Hiệu năng | `Animals.Contains`, `List` mới mỗi lần ăn, `IEnumerable` có `yield` | Không cấp phát trong vòng lặp nóng (§6) | Vừa |
 
@@ -103,7 +103,7 @@ public sealed class World
     bool TryRain(int fromX, int toX);          // giá 30 × ⌈n/7⌉, n ≤ 21
     bool TryInvite(string animal);
     bool TryRevive(int zone, int side);        // trả giá, mở cột, gieo mầm khởi đầu
-    void Discover(string species);             // khoảnh khắc 🌱, hồi sinh ao đầu tiên
+    void Discover(string species);             // ao thức dậy (Bèo, Lau sậy), loài động vật đến
     void GrantEssence(float amount);           // quà khoảnh khắc, Sinh khí nghỉ ngơi
 }
 ```

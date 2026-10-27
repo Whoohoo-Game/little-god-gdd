@@ -65,13 +65,15 @@ Tạo trong `GameSession`, gọi sau mỗi `World.Step()` với các sự kiện
 | ✨ Đến nơi mới · 🐣 | `GrantEssence(max(giftMin, EssenceRate × giftMinutes))` |
 | ✨ Loài mới | Quà vừa |
 | 🦋 | Quà lớn; thêm `VisitorId` vào `Player.MetVisitors` |
-| 🌱 | `World.Discover(id)` + `TryPlant(id, cột, free: true)` |
+| 🌱 | ~~bỏ 2026-10-28~~: `MomentDirector` không còn tạo 🌱. Bong bóng 🌱 còn trong save cũ vẫn nhặt được (`TryPlant(id, cột, free: true)`) |
 | 💧 | `TryRain(tâm − rainRadius, tâm + rainRadius)` giá thường; thiếu Sinh khí thì lệnh trả false, bong bóng ở lại |
 
 Nhận xong (trừ 💧 thất bại) thì khoảnh khắc biến mất. 💧 thành công cũng biến mất (rồi hồi 30 phút).
 
 ### 3.4 Thay phần tạm thời
 `WorldView.DiscoverStraySeeds` (tự khám phá cây khi đạt ngưỡng) bỏ đi: 🌱 đi qua khoảnh khắc. `SliceRunner` (test) vẫn tự khám phá như cũ.
+
+✅ 2026-10-28 (GDD 04 §3): bỏ nguồn 🌱 (`CheckDiscoveries`): mọi cây gieo được đã mở từ đầu. `moments.discover` trong `balance.json` chỉ còn để `SliceRunner` / mô hình Python giữ nhịp người chơi mô hình như cũ.
 
 ### 3.5 Hiển thị (`MomentPresenter`, Presentation)
 - Bong bóng là `SpriteRenderer` (pool), sprite pixel 12 × 12 vẽ bằng `PixelSprites` (khung tròn trắng + biểu tượng), ở tỉ lệ thế giới 16 px/đơn vị (tức 2× như GDD). Nổi lên xuống 1 px, chu kỳ 2 giây. Hiện dần 1 giây; mờ 100% → 40% trong `fadeLastMinutes` cuối.

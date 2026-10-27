@@ -69,7 +69,8 @@ Mở sau khi chuột ở trên khay **150 ms** (tránh mở nhầm khi chuột l
 **Hàng 2 · Quyền năng**
 | Nút | Hành vi |
 |-----|---------|
-| 🌱 **Gieo ▾** | Click: mở một hàng nhỏ **xổ ngang** ngay trên khay, mọc sang trái (✅ 2026-10-24: dải chỉ cao 180 pt nên xổ dọc bị cắt ở mép trên; 💌 / 🌿 cũng vậy), gồm các loài **đã khám phá** (biểu tượng + giá, ví dụ `Cỏ 5`, `Hoa dại 10`, `Mâm xôi 25`, `Sen 25`, `Táo dại 100`, `Sồi 150`, `Liễu 120`). Chọn một loài thì bật công cụ Gieo (§3.3). Loài chưa khám phá không hiện |
+| 🌍 **Phủ đất ▾** | ✅ 2026-10-28: nút riêng cho **cỏ phủ**, loài quyết định biome (`Cỏ 5` → Đồng cỏ, `Dương xỉ 8` → Rừng, [12 §2](12-moi-truong-song.md#2-biome-theo-cột)). Đứng trước 🌱 Gieo. Click: hàng xổ ngang như Gieo, chỉ có cỏ phủ. Chọn một loài thì bật công cụ Gieo (§3.3) với loài đó |
+| 🌱 **Gieo ▾** | Click: mở một hàng nhỏ **xổ ngang** ngay trên khay, mọc sang trái (✅ 2026-10-24: dải chỉ cao 180 pt nên xổ dọc bị cắt ở mép trên; 💌 / 🌿 cũng vậy), gồm **mọi loài gieo được trừ cỏ phủ** (✅ 2026-10-28: mở từ đầu, không cần khám phá; cỏ phủ ở nút 🌍) (biểu tượng + giá, ví dụ `Hoa dại 10`, `Mâm xôi 25`, `Sen 25`, `Táo dại 100`, `Sồi 150`, `Liễu 120`). Chọn một loài thì bật công cụ Gieo (§3.3). Loài chưa đủ Sinh khí thì mờ |
 | 🌧 **Mưa 30** | Bật công cụ Mưa (§3.3) |
 | 🔒 ô khoá | Quyền năng cấp cao hơn, hiện bóng mờ. Rê chuột: *"Gió · mở ở Cấp 2"*. Trong slice, Gió / Nắng ấm / Nắn đất / Sét **vẫn khoá kể cả khi đủ cấp**, kèm dòng *"Sắp có"* |
 | 💌 **n** | Chỉ hiện khi có lời mời đang chờ (09 §3.2). Click: khung nhìn trượt tới con vật đang chờ. Không mời trực tiếp từ khay, vì lời mời là khoảnh khắc ở ngoài thế giới |
@@ -113,6 +114,7 @@ Khi bật một công cụ, con trỏ trên mặt đất có thêm một biểu 
 | **Click một lần** | Cuộn 4 cột |
 | **Double-click** | Nhảy tới mép của vùng kế tiếp theo hướng đó (05 §2): khung nhìn trượt sao cho vùng đó vào giữa, trong 0.6 giây |
 | Ở mép thế giới | Nút phía đó **ẩn** |
+| **Bàn phím** (✅ 2026-10-28) | **← →** hoặc **A D**: nhấn một lần cuộn 4 cột, giữ thì cuộn như giữ nút. Chỉ nhận khi cửa sổ game đang được chọn |
 | Chỉ báo khoảnh khắc | Biểu tượng 8×8 nằm ngay trên nút, kèm chấm nếu ≥ 2 (✅ 09 §7) |
 
 - Khung nhìn không bao giờ tự di chuyển, trừ khi bật chế độ theo dõi (✅ Q12).
@@ -156,7 +158,8 @@ Cửa sổ **riêng, nổi phía trên dải đất**, neo ở mép phải (✅ 
 ### 6.1 Tab Loài
 - Lưới thẻ **12 loài của slice**: Cỏ, Hoa dại, Mâm xôi, Giun, Thỏ, Ong, Cáo, Bèo, Sen, Lau sậy, Cá, Diệc. Xếp theo biome, rồi theo vai trò.
 - **Đã khám phá:** tranh pixel, tên, biểu tượng vai trò (sản xuất · ăn cỏ · săn mồi · thụ phấn · phân huỷ). Chọn thẻ thì hiện bên dưới: mô tả 1–2 câu và *"Đang có: n"* (số cá thể trên cả thế giới; với cây là số cây; với giun là số cột).
-- **Chưa khám phá:** bóng đen + gợi ý mờ (✅ 04 §3). Gợi ý cho slice:
+- Thực vật gieo được luôn ở dạng **đã khám phá** (✅ 2026-10-28). Bèo · Lau sậy lộ ra khi ao đầu tiên thức dậy.
+- **Chưa khám phá** (động vật, Bèo · Lau sậy): bóng đen + gợi ý mờ (✅ 04 §3). Gợi ý cho slice (gợi ý của Hoa dại, Mâm xôi, Sen không còn dùng):
 
   | Loài | Gợi ý |
   |------|-------|

@@ -66,6 +66,8 @@ Cây đang sống mà biome quanh nó đổi (bị lấn) thì yếu dần và c
 - Là **mồi thứ hai của cáo** (cáo bắt thỏ hoặc sóc, con nào gần).
 
 ## 4. Khám phá thực vật 🌱
+✅ **Bỏ** 2026-10-28: mọi loài gieo được (cả Dương xỉ) mở từ đầu ([04 §3](04-quyen-nang-than.md#3-lời-mời-cơ-chế-khám-phá-loài)). Luật biome §2.3 không đổi: gieo ngoài biome của loài thì mọc kém hoặc không mọc. Bảng dưới chỉ để tra lịch sử.
+
 | Loài | Điều kiện |
 |------|-----------|
 | Hoa dại, Mâm xôi, Sen | Như cũ (09 §3.2) |

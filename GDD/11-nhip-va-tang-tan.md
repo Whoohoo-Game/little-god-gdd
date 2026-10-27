@@ -123,6 +123,8 @@ Sau khi sửa, nhịp slice không đổi (kết game trung vị 1.4 giờ thậ
 **Kiểm chứng khoảng cách gốc 1 ô (2026-10-24, 6 seed):** người chơi mô hình như trước → kết game 1.3–2.0 giờ thật (trung vị 1.4), 29–37 cây tán, đất bị che 16–24%. Người chơi **trồng kín** mọi chỗ được ở các đồng cỏ → 51–56 cây tán, che 28–59%, kết game vẫn tới (1.1–1.4 giờ thật), ong 12–32 đàn, thỏ không tuyệt (thấp nhất 3–23 con). Rừng dày làm mất hoa ở chỗ đó nhưng không làm sụp hệ.
 
 ### 2.4 Mở khoá (✅ Q24: khám phá 🌱)
+✅ **Thay** 2026-10-28: cây tán mở ngay từ đầu như mọi loài gieo được ([04 §3](04-quyen-nang-than.md#3-lời-mời-cơ-chế-khám-phá-loài)). Sồi vẫn chỉ mọc tốt trong Rừng (12 §2.3). Bảng dưới chỉ để tra lịch sử.
+
 Như Hoa dại / Mâm xôi / Sen (09 §3.2 🌱): đạt điều kiện thì hạt lạ theo gió xuất hiện, người chơi nhặt rồi gieo được.
 
 | Loài | Điều kiện (`moments.discover`) | Thường mở lúc (mô hình, giờ mp → phút thật) |

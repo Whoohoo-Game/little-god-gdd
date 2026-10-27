@@ -58,8 +58,9 @@
 - **Click:** nhận quà thường.
 - Lứa nhiều con (thỏ 2, cá 3) chỉ có một bong bóng.
 
-**3 · 🌱 Hạt lạ theo gió**
-Đây là cách **khám phá thực vật** trong slice (✅ 04 §3: "gió mang hạt lạ tới"). Khi bắt đầu game chỉ biết Cỏ; Bèo và Lau sậy được biết khi hồi sinh ao đầu tiên (08 §4.2).
+**3 · ~~🌱 Hạt lạ theo gió~~** ✅ **Bỏ** 2026-10-28: mọi loài gieo được đều mở từ đầu ([04 §3](04-quyen-nang-than.md#3-lời-mời-cơ-chế-khám-phá-loài)). Phần dưới chỉ giữ để tra lịch sử.
+
+~~Đây là cách **khám phá thực vật** trong slice (✅ 04 §3: "gió mang hạt lạ tới"). Khi bắt đầu game chỉ biết Cỏ; Bèo và Lau sậy được biết khi hồi sinh ao đầu tiên (08 §4.2).
 
 | Hạt | Xuất hiện khi | Rơi ở đâu |
 |-----|---------------|-----------|
@@ -70,7 +71,7 @@
 - Các ngưỡng này **trùng với lúc người chơi mô hình gieo** ở 07/08, nên nếu người chơi click kịp thì nhịp đã kiểm chứng không đổi.
 - **Click:** loài được **khám phá** (thêm vào Sổ tay, hiện nút gieo trong khay thần), và hạt **nảy mầm ngay tại chỗ, miễn phí**.
 - **Bỏ qua:** hạt bị gió thổi đi; 2 giờ sau một hạt khác cùng loài lại tới. Không bao giờ mất hẳn cơ hội khám phá.
-- **Hạt quà** (sau khi đã khám phá): thỉnh thoảng gió mang tới một hạt của loài đã biết, rơi vào cột phù hợp. Click thì nảy mầm miễn phí. Tối đa 1 hạt quà mỗi 3 giờ.
+- **Hạt quà** (sau khi đã khám phá): thỉnh thoảng gió mang tới một hạt của loài đã biết, rơi vào cột phù hợp. Click thì nảy mầm miễn phí. Tối đa 1 hạt quà mỗi 3 giờ.~~
 
 **4 · 🦋 Khách lạ** (03 §6 "Sinh vật lạ ghé qua")
 - **Xuất hiện:** mỗi đoạn biome đang **Cân bằng** (Sức khoẻ ≥ 85 ở mọi vùng trong đoạn) có xác suất **1/480 mỗi phút** (≈ 8 giờ một lần) có một khách lạ đi ngang. Toàn thế giới tối đa 1 khách mỗi 4 giờ.

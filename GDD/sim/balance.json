@@ -825,7 +825,7 @@
         "fertilityUse": 0.004,
         "detritus": 15,
         "essence": 0.06,
-        "regrow": 0.0,
+        "regrow": 0.4,
         "flower": false,
         "perennial": true,
         "sowCost": 8,
@@ -851,6 +851,43 @@
         "essence": 0.25,
         "detritus": 3,
         "buryRange": 5
+      },
+      {
+        "id": "deer",
+        "name": "Hươu",
+        "role": "herbivore",
+        "diet": "plant",
+        "habitat": "land",
+        "foodPlant": "fern",
+        "needPerMinute": 0.5,
+        "lifeMinutes": 5760,
+        "matureMinutes": 180,
+        "litter": 1,
+        "cooldownMinutes": 480,
+        "range": 5,
+        "essence": 0.3,
+        "detritus": 8
+      },
+      {
+        "id": "wolf",
+        "name": "Sói",
+        "role": "predator",
+        "diet": "prey",
+        "habitat": "land",
+        "prey": "deer",
+        "preyFallback": [
+          "squirrel"
+        ],
+        "minutesPerCatch": 1440,
+        "preyPerPredator": 5,
+        "homing": false,
+        "lifeMinutes": 5760,
+        "matureMinutes": 360,
+        "litter": 2,
+        "cooldownMinutes": 3000,
+        "range": 15,
+        "essence": 0.6,
+        "detritus": 10
       }
     ],
     "foxAlsoHunts": [
@@ -879,7 +916,12 @@
     },
     "arrival": {
       "afterMinutes": 120,
-      "absentBelow": 2
+      "absentBelow": 2,
+      "presentInTerritory": [
+        "fox",
+        "wolf"
+      ],
+      "loneMinutes": 1440
     },
     "habitat": {
       "worm": {
@@ -933,6 +975,20 @@
           "forest"
         ],
         "matureOaksMin": 2
+      },
+      "deer": {
+        "biomes": [
+          "forest"
+        ],
+        "fernMin": 8,
+        "canopyMin": 2
+      },
+      "wolf": {
+        "biomes": [
+          "forest"
+        ],
+        "preyMin": 6,
+        "denMin": 3
       }
     },
     "modelPlayerExpandReserve": 150
@@ -1009,8 +1065,37 @@
         "restMax": 30,
         "cooldownMinutes": 720,
         "pairs": false
+      },
+      "deer": {
+        "social": "herd",
+        "groupMax": 4,
+        "spread": 3,
+        "herdSpacing": 8,
+        "anchorStepMinutes": 3,
+        "speed": 1,
+        "restMin": 10,
+        "restMax": 40,
+        "cooldownMinutes": 480,
+        "splitAt": 4,
+        "capLitter": true
+      },
+      "wolf": {
+        "social": "solitary",
+        "territory": 12,
+        "denSpacing": 20,
+        "searchRange": 40,
+        "avoid": 4,
+        "speed": 2,
+        "restMin": 20,
+        "restMax": 60,
+        "cooldownMinutes": 3000,
+        "litter": 2,
+        "pairs": true,
+        "minutesPerCatch": 1440,
+        "denBiome": "forest"
       }
-    }
+    },
+    "joinLoneHerds": true
   },
   "hunting": {
     "burrow": {
@@ -1043,6 +1128,13 @@
         "hideMinutes": 0,
         "wary": 0,
         "refuge": "far"
+      },
+      "deer": {
+        "alertRange": 5,
+        "fleeSpeed": 2,
+        "hideMinutes": 0,
+        "wary": 4,
+        "refuge": "none"
       }
     },
     "predators": {
@@ -1062,6 +1154,16 @@
         "pounce": 0.4,
         "chaseMaxMinutes": 20,
         "tiredMinutes": 30
+      },
+      "wolf": {
+        "chaseSpeed": 4,
+        "stalkSpeed": 1,
+        "stalkNotice": 2,
+        "fedKeepAway": 4,
+        "sight": 12,
+        "pounce": 0.4,
+        "chaseMaxMinutes": 15,
+        "tiredMinutes": 20
       }
     },
     "sleep": {

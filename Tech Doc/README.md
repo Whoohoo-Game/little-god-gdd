@@ -17,6 +17,7 @@
 | 08 | [Hang thỏ & săn mồi](08-hang-va-san-moi.md) | GDD 14 → code: hang thỏ, con mồi né và trốn, thú săn rượt và vồ, bụi cỏ tung lên, save v5 | ✅ Xong code, chờ thử tay |
 | 09 | [Sinh động, phản hồi & khoảnh khắc rút gọn](09-sinh-dong-va-phan-hoi.md) | GDD 15 → code: phản hồi tức thì, sinh vật trang trí, hành vi nhỏ, `MomentDirector` 6 loại, `balance.json → moments` mới | ✅ Xong code, chờ thử tay |
 | 10 | [Nắn đất](10-nan-dat.md) | GDD 16 → code: ao động (`World.Ponds`), đào / lấp từng ô, môi trường ao tự sinh, công cụ ⛰️, save v6 | ✅ Xong code, chờ thử tay |
+| 11 | [Hươu và Sói](11-huou-va-soi.md) | GDD 17 → code: Hươu, Sói, Dương xỉ mọc lại, một cặp thú săn mỗi khu, con lẻ nhập đàn | ✅ Xong code, chờ thử tay |
 
 **Ký hiệu:** dùng chung với GDD (✅ đã chốt · 💡 đề xuất · ❓ cần quyết định). ⚠️ là rủi ro kỹ thuật.
 
@@ -84,3 +85,6 @@ Công cụ: Unity **6000.6.3f1**, URP 2D, Input System 1.20, uGUI 2.6, Test Fram
 | 2026-10-25 | ✅ **GDD 14 → code** ([08](08-hang-va-san-moi.md)): mục `hunting`; `WorldHunting.cs` (hang thỏ, dời hang, hang bỏ trống, con mồi cảnh giác / chạy về chỗ trú / trốn, thú săn rượt rồi lao tới vồ); `AnimalView` trốn, chạy, vồ; `DustPuff`; hang vẽ trong `WorldView`; save v5. Thống kê C# khớp `huntsim.py`. 86 EditMode + 3 PlayMode xanh |
 | 2026-10-25 | ✅ Thỏ ngủ trong hang, sóc trên cây là luật mô phỏng ([08 §2b](08-hang-va-san-moi.md)): `hunting.sleep`, `World.Asleep`, `Animal.Sleeping`; thỏ con sinh trong hang ở trong hang; `AnimalView` theo giờ ngủ của mô phỏng cho thỏ, sóc; cáo thức 15h–9h; cáo no 15 giờ mp. 89 EditMode + 3 PlayMode xanh |
 | 2026-10-26 | ✅ Hang thỏ mặt cắt + gia đình 4 con ([08 §7](08-hang-va-san-moi.md)): `SocialRule.CapLitter`; `PixelSprites.BurrowSection` / `BurrowMound`; `WorldView.BurrowSlot`; thỏ trốn / ngủ nằm trong buồng, vẫn nhìn thấy. 90 EditMode + 3 PlayMode xanh |
+| 2026-10-28 | ✅ **Mở hết cây gieo được** (GDD 04 §3): `World.KnowSowablePlants()` khi tạo thế giới và khi đọc save cũ; bỏ nguồn 🌱 trong `MomentDirector`. Test mới: `NoSeedDiscoveryMoments`, `OldSave_UnlocksAllSowablePlants` |
+| 2026-10-28 | ✅ Nút **🌍 Phủ đất** (GDD 10 §2): `UiPrefabBuilder` thêm `coverButton` trước Gieo (Gieo, Mưa, ô khoá dời phải 68 pt); `GodTrayView` có `PopupKind.Cover` chỉ liệt kê cây `IsCover`, Gieo bỏ cây phủ |
+| 2026-10-28 | ✅ **GDD 17 → code** ([11](11-huou-va-soi.md)): Hươu, Sói trong `biomeModel.animals`; Dương xỉ `regrow` 0.4; luật Q52 (`PreyFallback`), Q54 (`PredatorPresent`), Q55 (`JoinLoneHerds`), Q57 (`UpdateLone`, `Animal.Alone` trong save); hang Sói chỉ trong Rừng (`denBiome`); `PixelSprites.Deer/Wolf`, hành vi trong `AnimalView`. `forestsim.py` đọc số từ `balance.json`. Thống kê C# 10 seed: Hươu có mặt 100%, Sói 100% ở 8/10 seed, kết 0.6–1.2 giờ thật. 124 EditMode + 4 PlayMode xanh |

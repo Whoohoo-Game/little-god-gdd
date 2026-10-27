@@ -45,6 +45,7 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 | 14 | [Hang thỏ, né thú săn & rượt bắt](14-hang-tho-va-san-moi.md) | Mỗi hang một gia đình thỏ; con mồi tránh và chạy trốn về hang / cây; thú săn rượt nhanh và vồ | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
 | 15 | [Sinh động & phản hồi](15-sinh-dong-va-phan-hoi.md) | Phản hồi tức thì cho mưa / gieo / lấn đất, sinh vật trang trí, hành vi nhỏ khi nghỉ, khoảnh khắc M5 rút gọn theo nhịp ×100 | ✅ Đã chốt, đã đo tần suất khoảnh khắc |
 | 16 | [Nắn đất](16-nan-dat.md) | Đào / lấp từng ô nước ở bất kỳ đâu: ao động, môi trường tự sinh theo độ rộng, giá, thao tác | ✅ Đã chốt, chưa kiểm chứng bằng mô hình |
+| 17 | [Hươu và Sói](17-huou-va-soi.md) | Rừng có cặp ăn cỏ / ăn thịt riêng: Hươu gặm Dương xỉ, Sói săn Hươu | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
 | — | [`sim/ecosim.py`](sim/ecosim.py) | Mô hình Python dùng để kiểm chứng số liệu của file 07 | Công cụ |
 | — | [`sim/worldsim.py`](sim/worldsim.py) | Mô hình nhiều vùng cho file 08–09 | Công cụ |
 | — | [`sim/biomesim.py`](sim/biomesim.py) | Mô hình môi trường sống cho file 12 (biome theo cột, lấn đất hoang, động vật tự đến) | Công cụ |
@@ -62,6 +63,9 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 
 | Ngày | Quyết định |
 |------|------------|
+| 2026-10-28 | ✅ **[17 Hươu và Sói](17-huou-va-soi.md) chốt** · Đề xuất [17](17-huou-va-soi.md):** mỗi biome một cặp ăn cỏ / ăn thịt; Rừng thêm Hươu (gặm Dương xỉ) và Sói (săn Hươu). Đo `forestsim.py`: số tạm không đạt; đã chỉnh → Hươu có mặt 100%, Sói 88%, kết 8/8 trung vị 1.1 giờ thật. ✅ Q50–Q55: chốt số đã chỉnh, Dương xỉ mọc lại, Sói bắt Sóc khi vắng Hươu, kết game chờ cả hai, ~1 cặp thú săn mỗi khu, con lạc đàn nhập đàn. Đo lại: Sói còn ~1 cặp mỗi khu, có mặt 98%, kết 8/8 trung vị 1.2 giờ; Diệc tụt 4.7 → 1.8 nếu áp Q54. ✅ Q56: Diệc giữ luật cũ; ✅ Q57: thú săn một mình 1 ngày mp coi như vắng. Đo lần cuối: Hươu có mặt 100%, Sói 98% (~1 cặp mỗi khu Rừng), Diệc như gốc, kết 8/8 trung vị 1.2 giờ thật. **GDD 17 chốt** |
+| 2026-10-28 | ✅ Khay có nút **🌍 Phủ đất** riêng cho cỏ phủ đổi biome (Cỏ, Dương xỉ); 🌱 Gieo còn các cây khác ([10 §2](10-giao-dien.md)) |
+| 2026-10-28 | ✅ **Mở hết cây gieo được từ đầu** ([04 §3](04-quyen-nang-than.md#3-lời-mời-cơ-chế-khám-phá-loài)): Hoa dại, Mâm xôi, Sen, Dương xỉ, Sồi, Táo dại, Liễu có nút gieo ngay; bỏ khoảnh khắc 🌱 Hạt lạ (09 §3.2, 11 §2.4, 12 §4, 15 §3.2). Luật biome và giá gieo giữ nguyên |
 | 2026-10-28 | ✅ **Hai loài không đi chung ([14 §3c](14-hang-tho-va-san-moi.md)):** con mồi đi bộ tránh xa thú săn no (≥ 4 / 3 cột); cáo no không đi vào giữa bầy mồi; cáo đói bò rình 1 cột/phút, mồi chỉ nhận ra khi ≤ 2 cột; hang cáo cách bầy mồi ≥ 4 cột. `huntsim.py`: kết 15/16, trung vị 1.0 giờ thật |
 | 2026-10-28 | ✅ **Bỏ Khách lạ 🦋** (Hươu sao, Rùa đầm, Cú mèo, quà lớn) sau thử tay: người chơi không cần. Khoảnh khắc còn 5 loại; `momentsim.py`: ~54 mỗi slice (1 mỗi 1.3 phút) ([15 §3.5](15-sinh-dong-va-phan-hoi.md)) |
 | 2026-10-27 | ✅ Hang thỏ chỉ đào trên đất: miệng hang và buồng ngủ (tới cột x + 2) không nằm trên nước hay đất hoang; hang cũ sai chỗ tự dời ([14 §2](14-hang-tho-va-san-moi.md)). ✅ **Q43–Q46 ([16 Nắn đất](16-nan-dat.md)):** đào ao mới ở bất kỳ đâu, mỗi lần 1 ô, môi trường tự sinh theo độ rộng; mở ngay, đào 150 / lấp 100; công cụ ⛰️ riêng; không giới hạn độ rộng. ✅ **Q47–Q49:** lấp hết ao thì cá rời đi nhẹ nhàng; môi trường tự sinh theo 16 §4; chỉ click từng ô |

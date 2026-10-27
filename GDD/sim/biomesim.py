@@ -26,6 +26,10 @@ for d in BM["plants"]:
     COSTS[d["name"]] = d["sowCost"]
 for d in BM["animals"]:
     NAME[d["id"]] = d["name"]
+for d in BM["animals"]:
+    if d["diet"] != "nuts":         # Hươu, Sói (GDD 17): dựng như loài thường; luật đến của chúng ở forestsim.py
+        ANIMALS[d["name"]] = ws._animal(d)
+        continue
     ANIMALS[d["name"]] = dict(role="ăn cỏ", eats="nuts", life=d["lifeMinutes"], mature=d["matureMinutes"],
                               litter=d["litter"], cooldown=d["cooldownMinutes"], range=d["range"],
                               essence=d["essence"], detritus=d["detritus"], habitat="land", need=0,

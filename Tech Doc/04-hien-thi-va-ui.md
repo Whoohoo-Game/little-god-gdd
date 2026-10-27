@@ -67,6 +67,7 @@ MomentDirector.Update(world, events, viewport, nowMinute)
 | Khay thần thu gọn / mở rộng (§3) | `GodTrayView` | ✅ M4: đọc `World` 4 lần/giây (không tách Model, khay chỉ đọc). Độ trễ mở 150 ms / đóng 600 ms đặt trong Inspector để chỉnh khi chơi thử |
 | Công cụ Gieo / Mưa (§3.3) | `ToolController` | Trạng thái: `None` (mặc định), `Sow(id)`, `Rain`. Huỷ bằng chuột phải / Esc / 20 giây không dùng. Lớp tô cột theo `World.Suitability`; ✅ hình mờ xem trước (`ghost`, sprite của loài, cây tán theo mùa); `GodTrayView` ẩn cả khay bằng `CanvasGroup` khi `Tools.Kind != None` |
 | Nút cuộn (§4) | `ScrollButton` | Độ đục theo khoảng cách con trỏ (§6.1) |
+| Phím cuộn ← → / A D (§4) | `WorldView.HandleScrollKeys` | Gọi `Viewport.Nudge` khi nhấn, `Viewport.Hold` sau 0.25 s giữ |
 | Bản đồ mini (§5) | `MiniMapView` | Một `Texture2D` 144 × 1 cập nhật mỗi 5 giây (màu vùng), cộng một lớp overlay cho khung nhìn và chấm khoảnh khắc. Không cần một GameObject cho mỗi cột |
 | Sổ tay (§6), Cài đặt (§9) | `NotebookView`, `SettingsView` | Xem §6.2 |
 | Thẻ thông tin (§7) | `InfoCardView` | ✅ M4: Screen Space cạnh con trỏ (một canvas cho cả UI), đọc `WorldView.Hover` |

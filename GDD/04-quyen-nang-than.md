@@ -34,7 +34,7 @@ Thần **không điều khiển** sinh vật. Thần chỉ thay đổi **điều
 
 | Quyền năng | Mở khoá | Tác dụng | Ghi chú |
 |------------|---------|----------|---------|
-| 🌱 **Gieo hạt** | Ban đầu | Gieo một loài đã khám phá vào cột | Chỉ nảy mầm nếu cột phù hợp. Game hiện trước tỉ lệ thành công. |
+| 🌱 **Gieo hạt** | Ban đầu | Gieo một loài cây vào cột (✅ 2026-10-28: mọi loài gieo được đều mở từ đầu) | Chỉ nảy mầm nếu cột phù hợp. Game hiện trước tỉ lệ thành công. |
 | 🌧️ **Mưa** | Ban đầu | Kéo để tăng Độ ẩm trên một đoạn cột | Mưa quá nhiều làm úng, có hại cho cây ưa khô |
 | 💌 **Lời mời** | Khi đủ điều kiện | Mời một loài động vật mới đến vùng đất | Loài chỉ nhận lời khi môi trường đủ điều kiện, ví dụ Thỏ cần ≥ 10 cỏ sống (07 §6.5). Xem mục 3. |
 | 🌬️ **Gió** | Cấp 2 | Thổi hạt giống bay xa theo một hướng | Giúp lan sang vùng đất hoang |
@@ -52,7 +52,7 @@ Thần **không điều khiển** sinh vật. Thần chỉ thay đổi **điều
 3. Người chơi click để mời ở lại (tốn Sinh khí). Loài được thêm vào sổ tay, có ảnh minh hoạ và mô tả.
 4. Nếu người chơi bỏ qua, con vật đi mất và quay lại sau.
 
-Thực vật mới được khám phá theo cách khác: **gió mang hạt lạ tới**, hoặc khi một vùng mới được hồi sinh. Chi tiết: khoảnh khắc 🌱 ở [09 §3.2](09-khoanh-khac.md#32-chi-tiết-từng-loại).
+✅ (2026-10-28) Thực vật **không cần khám phá**: mọi loài gieo được (có giá gieo) đều mở ngay từ đầu game, có sẵn nút gieo trong khay thần. Bèo và Lau sậy không gieo được, vẫn tự mọc khi ao thức dậy. ~~Gió mang hạt lạ tới (khoảnh khắc 🌱, 09 §3.2)~~.
 
 ## 4. Tiến cấp của thần
 💡 Tổng Sinh khí **tích luỹ từ đầu** (không phải số đang có) quyết định **cấp thần**. Mỗi cấp mở một quyền năng mới hoặc nâng cấp quyền năng cũ, ví dụ mưa phủ rộng hơn hay thời gian hồi ngắn hơn. Tiêu Sinh khí không làm tụt cấp, nên người chơi không phải đắn đo giữa tiêu và giữ.

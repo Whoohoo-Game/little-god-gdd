@@ -173,7 +173,7 @@ Mô hình người chơi chăm của 11, 12 ghé mỗi **3 phút thật**. Bản
 | 1 | **Loài mới** | A | ✨ (vàng) | Lần đầu một loài động vật xuất hiện trong thế giới ([12 §3](12-moi-truong-song.md#3-động-vật-tự-đến--q29--2-con-chờ-2-giờ-mô-phỏng)). 7 lần cả game | Quà vừa; loài vào Sổ tay |
 | 2 | **Đến nơi mới** | A | ✨ (trắng) | Một cặp tự đến một đoạn biome (12 §3), trừ lần là Loài mới | Quà thường |
 | 3 | **Con non** | A | 🐣 | Như [09 §3.2 mục 2](09-khoanh-khac.md#32-chi-tiết-từng-loại): thú săn, lần sinh đầu của loài trong đoạn, hoặc loài đang hồi phục (≤ 4 con); ong chia đàn | Quà thường |
-| 4 | **Hạt lạ** (khám phá) | A | 🌱 | Ngưỡng như 09 / 12 §4 (code tạm thời đang tự khám phá khi đạt ngưỡng; nay đi qua bong bóng). Theo chung luật giới hạn §3.3 | Loài mới + một cây miễn phí (không đổi) |
+| ~~4~~ | ~~**Hạt lạ** (khám phá)~~ | | 🌱 | ✅ **Bỏ** 2026-10-28: mọi loài gieo được mở từ đầu (04 §3) | |
 | ~~5~~ | ~~**Khách lạ**~~ | | 🦋 | ✅ **Bỏ** 2026-10-28 (người chơi không cần) | |
 | 6 | **Vùng đang khô** | B | ☁️ (✅ 2026-10-27: đám mây, không còn bong bóng 💧, §3.4b) | Như 09: độ ẩm trung bình vùng < 25 **và** ≥ 3 cây đã vàng (máu < 60) | Mây lan dài 10 ô, xám lại, mưa dưới cả bề ngang mây, vừa mưa vừa trôi tới hết bản đồ; giá một lần gọi mưa (30) |
 

@@ -30,7 +30,7 @@ Các quyết định cần chốt trước khi làm prototype gameplay. Mỗi c�
 - ✅ **Q21.** Nhịp ×100; **1 mùa = 30 phút thật** (3 000 phút mp, ↻ 2026-10-24, trước 2 ngày mô phỏng ≈ 29 phút), mùa theo thời gian mô phỏng ([11 §1.1](11-nhip-va-tang-tan.md#11-đồng-hồ)).
 - ✅ **Q22.** Giữ **Sinh khí nghỉ ngơi**, trần **10 phút thật** thu nhập ([11 §1.2](11-nhip-va-tang-tan.md#12-sinh-khí-nghỉ-ngơi--q22-giữ-trần-10-phút-thật)).
 - ✅ **Q23.** Tầng tán có cả **Sồi, Táo dại, Liễu** ([11 §2.3](11-nhip-va-tang-tan.md#23-loài--q23-cả-ba)).
-- ✅ **Q24.** Cây tán mở bằng **khám phá 🌱** ([11 §2.4](11-nhip-va-tang-tan.md#24-mở-khoá--q24-khám-phá-)).
+- ✅ **Q24.** ~~Cây tán mở bằng **khám phá 🌱**~~ → ✅ 2026-10-28: mọi loài gieo được mở từ đầu ([04 §3](04-quyen-nang-than.md#3-lời-mời-cơ-chế-khám-phá-loài)).
 
 - ✅ **Q25.** Không có lệnh hồi sinh: đất hoang bị cỏ phủ của biome kề bên lấn dần ([12 §2.1](12-moi-truong-song.md#21-cỏ-lấn-đất-hoang--q25)).
 - ✅ **Q26.** Biome theo cột, do cỏ phủ quyết định (Cỏ → Đồng cỏ, Dương xỉ → Rừng); gieo cỏ phủ cách biome của nó ≤ 5 ô thì nối thành hành lang để lấn ([12 §2.2](12-moi-truong-song.md#22-gieo-và-đẩy-ranh-giới--q26)).
@@ -64,6 +64,16 @@ Các quyết định cần chốt trước khi làm prototype gameplay. Mỗi c�
 - ✅ **Q47.** Lấp ô nước cuối cùng của ao: cá rời đi nhẹ nhàng, diệc bay đi ([16 §5](16-nan-dat.md)).
 - ✅ **Q48.** Môi trường ao tự sinh theo độ rộng như [16 §4](16-nan-dat.md).
 - ✅ **Q49.** Nắn đất chỉ click từng ô.
+
+- ✅ **Q50.** Hươu, Sói dùng số đã chỉnh sau khi đo ([17 §5](17-huou-va-soi.md)).
+- ✅ **Q51.** Dương xỉ mọc lại khi bị gặm (`regrow` 0.4).
+- ✅ **Q52.** Sói bắt Sóc khi không có Hươu.
+- ✅ **Q53.** Kết game chờ cả Hươu và Sói.
+- ✅ **Q54.** Giữ ~1 cặp thú săn mỗi khu: chỉ vắng khi cả vùng lang thang vắng (Sói, Cáo, Diệc).
+- ✅ **Q55.** Con lạc đàn nhập đàn cùng loài gần nhất (Hươu, Thỏ, Cá).
+
+- ✅ **Q56.** Diệc giữ luật tự đến cũ; luật Q54 chỉ cho Sói, Cáo.
+- ✅ **Q57.** Sói, Cáo một mình 1 ngày mp thì coi như vắng, cặp mới được tới.
 
 ## Đang mở
 *Hiện chưa có câu hỏi nào đang mở.*
