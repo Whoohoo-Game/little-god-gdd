@@ -1,6 +1,7 @@
 # Little God — Game Design Document
 
-> Phiên bản: **v0.3 (nháp)** · Cập nhật: 2026-10-23
+> Phiên bản: **v0.3 (nháp)** · Cập nhật: 2026-10-27
+> Đọc dạng web: **https://whoohoo-game.github.io/little-god-gdd/** (tự cập nhật khi tài liệu trên nhánh `main` thay đổi)
 
 Một vị thần nhỏ chăm sóc hệ sinh thái sống trong một dải đất nằm ở đáy màn hình máy tính, ngay trên Dock/taskbar.
 Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người chơi thỉnh thoảng liếc xuống và can thiệp nhẹ để thế giới tiếp tục sinh sôi.
