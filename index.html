@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little God GDD</title>
+<meta name="description" content="Little God — tài liệu thiết kế game (GDD) và tài liệu kỹ thuật, đọc trực tiếp từ các file Markdown trong Docs/.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233f7d4e'/%3E%3Cpath d='M16 7c-4 5-6 8-6 11a6 6 0 0 0 12 0c0-3-2-6-6-11z' fill='%23c8f2a6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/gdd.css">
+</head>
+<body>
+<div class="app">
+  <aside class="rail" id="rail" aria-label="Mục lục">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M16 6c-4.4 5.4-6.6 8.8-6.6 12a6.6 6.6 0 0 0 13.2 0c0-3.2-2.2-6.6-6.6-12z"/><path class="vein" d="M16 12v13"/></svg>
+      </div>
+      <div>
+        <div class="brand-title">Little God</div>
+        <div class="brand-sub" id="brand-sub">Game design document</div>
+      </div>
+    </div>
+    <div class="switch" role="tablist" aria-label="Tài liệu">
+      <button role="tab" data-book="gdd" aria-selected="true">GDD</button>
+      <button role="tab" data-book="tech" aria-selected="false">Tech Doc</button>
+    </div>
+    <div class="search">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="q" type="search" placeholder="Tìm trong tài liệu" autocomplete="off" spellcheck="false" aria-label="Tìm trong tài liệu">
+      <kbd class="key" aria-hidden="true">/</kbd>
+      <button class="clr" id="clr" aria-label="Xoá tìm kiếm" hidden>×</button>
+    </div>
+    <div class="results" id="results" hidden></div>
+    <nav class="toc" id="toc"></nav>
+    <div class="rail-foot">Đọc từ <code>Docs/*.md</code> · sửa Markdown là trang tự cập nhật</div>
+  </aside>
+  <button class="menu-btn" id="menu-btn" aria-label="Mở mục lục" aria-controls="rail" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <div class="scrim" id="scrim" hidden></div>
+  <main class="panel" id="panel">
+    <div class="loading" id="loading">Đang tải tài liệu…</div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script src="assets/gdd.js"></script>
+</body>
+</html>

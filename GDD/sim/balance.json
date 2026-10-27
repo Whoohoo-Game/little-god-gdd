@@ -1,0 +1,1069 @@
+{
+  "version": 1,
+  "_about": "Nguồn số cân bằng duy nhất (Tech Doc 03 §1). Python: worldsim.py. Unity: bản sao Assets/LittleGod/Data/balance.json. Thời gian tính bằng phút mô phỏng (nhịp ×100: 1 phút thật = 100 phút mô phỏng, GDD 11), trừ restEssence tính bằng phút thật; mảng theo mùa: [Xuân, Hạ, Thu, Đông].",
+  "time": {
+    "simMinutesPerRealMinute": 100,
+    "seasonMinutes": 3000,
+    "dayNightMinutes": 1000,
+    "hoursPerCalendarDay": 8
+  },
+  "world": {
+    "startEssence": 40,
+    "startGrass": 5,
+    "pondWaterColumns": 4,
+    "layout": [
+      {
+        "id": "west_hill",
+        "name": "Đồi Tây",
+        "size": 10,
+        "kind": "meadow"
+      },
+      {
+        "id": "reed_pond",
+        "name": "Ao Sậy",
+        "size": 10,
+        "kind": "pond"
+      },
+      {
+        "id": "windy_flat",
+        "name": "Bãi Gió",
+        "size": 10,
+        "kind": "meadow"
+      },
+      {
+        "id": "far_meadow",
+        "name": "Đồng Xa",
+        "size": 9,
+        "kind": "meadow"
+      },
+      {
+        "id": "lotus_pond",
+        "name": "Ao Sen",
+        "size": 9,
+        "kind": "pond"
+      },
+      {
+        "id": "origin_1",
+        "name": "Khởi Nguyên 1",
+        "size": 12,
+        "kind": "start"
+      },
+      {
+        "id": "origin_2",
+        "name": "Khởi Nguyên 2",
+        "size": 12,
+        "kind": "start"
+      },
+      {
+        "id": "origin_3",
+        "name": "Khởi Nguyên 3",
+        "size": 12,
+        "kind": "start"
+      },
+      {
+        "id": "origin_4",
+        "name": "Khởi Nguyên 4",
+        "size": 12,
+        "kind": "start"
+      },
+      {
+        "id": "east_hill",
+        "name": "Đồi Đông",
+        "size": 10,
+        "kind": "meadow"
+      },
+      {
+        "id": "east_pond",
+        "name": "Ao Đông",
+        "size": 10,
+        "kind": "pond"
+      },
+      {
+        "id": "east_meadow",
+        "name": "Đồng Đông",
+        "size": 10,
+        "kind": "meadow"
+      },
+      {
+        "id": "stone_terrace",
+        "name": "Thềm Đá",
+        "size": 10,
+        "kind": "meadow"
+      },
+      {
+        "id": "sacred_garden",
+        "name": "Khu Vườn Thiêng",
+        "size": 8,
+        "kind": "garden"
+      }
+    ],
+    "wastelandFertility": 10,
+    "revived": {
+      "moisture": 50.0,
+      "bankMoisture": 70,
+      "fertilityBonus": 25.0,
+      "detritus": 10.0
+    },
+    "starters": {
+      "meadowGrass": 3,
+      "pondGrass": 2,
+      "pondDuckweed": 2,
+      "pondReeds": 1
+    }
+  },
+  "revive": {
+    "costs": [
+      3000,
+      15000,
+      30000,
+      48000,
+      66000,
+      84000,
+      102000,
+      120000,
+      145000
+    ],
+    "garden": 300000,
+    "healthy": 60,
+    "balanced": 85,
+    "maxDiscount": 0.3
+  },
+  "powers": {
+    "rainCost": 30,
+    "rainRadius": 3,
+    "rainMaxColumns": 21
+  },
+  "environment": {
+    "evaporation": [
+      0.05,
+      0.1,
+      0.06,
+      0.02
+    ],
+    "rainChancePerHour": [
+      0.3,
+      0.06,
+      0.15,
+      0.05
+    ],
+    "growthSeason": [
+      1.25,
+      1.0,
+      0.8,
+      0.3
+    ],
+    "rainAmount": 30,
+    "snowmelt": 40,
+    "moistureDiffusion": 0.05,
+    "decompBase": 0.02,
+    "decompWorm": 0.06,
+    "decompYield": 0.8,
+    "shrubShade": 30,
+    "canopyShade": 45,
+    "canopyEvaporation": 0.5,
+    "canopyRadius": 1,
+    "canopySpacing": 1,
+    "leafLitterRadius": 2,
+    "leafLitterPerAutumn": 20
+  },
+  "plantRules": {
+    "wetFloor": 0.5,
+    "healthRate": 1.0,
+    "healthPivot": 0.35,
+    "dormantWakeQ": 0.5,
+    "dormantRecover": 0.5,
+    "dormantWakeHealth": 30,
+    "grassFloor": 10,
+    "grazedHealthLoss": 4,
+    "seedbankSproutMinutes": 180,
+    "pollinationBonus": 2.0,
+    "replantOnOldAgeQ": 0.3
+  },
+  "animalRules": {
+    "breedSeason": [
+      1.5,
+      1.0,
+      0.7,
+      0.2
+    ],
+    "startHunger": 80.0,
+    "fedGain": 0.9,
+    "starveDrain": 0.4,
+    "hungryBelow": 60,
+    "breedAbove": 70,
+    "breedChance": 0.5,
+    "starveAt": 10,
+    "dormantFood": 0.5,
+    "forageSight": 12,
+    "grazerCapacity": 1.0,
+    "legacyGrazerCapacity": 0.7,
+    "arrivalAfterMinutes": 120,
+    "periodicCheckMinutes": 30,
+    "catchBase": 0.25,
+    "lastPair": 2,
+    "preyComfort": 6,
+    "catchDetritus": 2,
+    "winterPredatorNeed": 0.5,
+    "shelterEscape": 0.5,
+    "pollinatorMinFlowers": 3,
+    "pollinatorFedGain": 1.0,
+    "pollinatorHungryDrain": 0.5,
+    "flowersPerPollinator": 6,
+    "swarmRange": 12,
+    "swarmSpacing": 4,
+    "homingSight": 30,
+    "fruitGain": 0.3
+  },
+  "worm": {
+    "name": "Giun",
+    "essence": 0.04
+  },
+  "plants": [
+    {
+      "id": "grass",
+      "name": "Cỏ",
+      "layer": 0,
+      "ground": "land",
+      "growMinutes": 20,
+      "lifeMinutes": 1440,
+      "moisture": [
+        15,
+        30,
+        85,
+        100
+      ],
+      "fertilityMin": 10,
+      "lightMin": 40,
+      "seedsPerHour": 3.0,
+      "seedRange": 2,
+      "waterUse": 0.02,
+      "fertilityUse": 0.004,
+      "detritus": 8,
+      "essence": 0.05,
+      "regrow": 0.6,
+      "flower": false,
+      "perennial": true,
+      "sowCost": 5,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "flower",
+      "name": "Hoa dại",
+      "layer": 0,
+      "ground": "land",
+      "growMinutes": 40,
+      "lifeMinutes": 1440,
+      "moisture": [
+        25,
+        40,
+        80,
+        100
+      ],
+      "fertilityMin": 25,
+      "lightMin": 60,
+      "seedsPerHour": 1.5,
+      "seedRange": 3,
+      "waterUse": 0.025,
+      "fertilityUse": 0.006,
+      "detritus": 6,
+      "essence": 0.1,
+      "regrow": 0.0,
+      "flower": true,
+      "perennial": false,
+      "sowCost": 10,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "berry",
+      "name": "Mâm xôi",
+      "layer": 1,
+      "ground": "land",
+      "growMinutes": 120,
+      "lifeMinutes": 5760,
+      "moisture": [
+        30,
+        45,
+        85,
+        100
+      ],
+      "fertilityMin": 35,
+      "lightMin": 40,
+      "seedsPerHour": 0.4,
+      "seedRange": 2,
+      "waterUse": 0.04,
+      "fertilityUse": 0.008,
+      "detritus": 20,
+      "essence": 0.15,
+      "regrow": 0.0,
+      "flower": true,
+      "perennial": true,
+      "sowCost": 25,
+      "fruitEaters": [
+        "fox"
+      ],
+      "bank": false
+    },
+    {
+      "id": "duckweed",
+      "name": "Bèo",
+      "layer": 0,
+      "ground": "water",
+      "growMinutes": 20,
+      "lifeMinutes": 1440,
+      "moisture": null,
+      "fertilityMin": 10,
+      "lightMin": 40,
+      "seedsPerHour": 3.0,
+      "seedRange": 2,
+      "waterUse": 0.0,
+      "fertilityUse": 0.004,
+      "detritus": 4,
+      "essence": 0.05,
+      "regrow": 1.0,
+      "flower": false,
+      "perennial": true,
+      "sowCost": null,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "lotus",
+      "name": "Sen",
+      "layer": 1,
+      "ground": "water",
+      "growMinutes": 180,
+      "lifeMinutes": 5760,
+      "moisture": null,
+      "fertilityMin": 30,
+      "lightMin": 60,
+      "seedsPerHour": 0.3,
+      "seedRange": 2,
+      "waterUse": 0.0,
+      "fertilityUse": 0.008,
+      "detritus": 15,
+      "essence": 0.25,
+      "regrow": 0.0,
+      "flower": true,
+      "perennial": true,
+      "sowCost": 25,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "reed",
+      "name": "Lau sậy",
+      "layer": 1,
+      "ground": "land",
+      "growMinutes": 90,
+      "lifeMinutes": 4320,
+      "moisture": [
+        50,
+        65,
+        100,
+        100
+      ],
+      "fertilityMin": 20,
+      "lightMin": 40,
+      "seedsPerHour": 0.6,
+      "seedRange": 1,
+      "waterUse": 0.03,
+      "fertilityUse": 0.006,
+      "detritus": 15,
+      "essence": 0.12,
+      "regrow": 0.0,
+      "flower": false,
+      "perennial": true,
+      "sowCost": null,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "oak",
+      "name": "Sồi",
+      "layer": 2,
+      "ground": "land",
+      "growMinutes": 1440,
+      "lifeMinutes": 43200,
+      "moisture": [
+        15,
+        30,
+        85,
+        100
+      ],
+      "fertilityMin": 20,
+      "lightMin": 50,
+      "seedsPerHour": 0.05,
+      "seedRange": 2,
+      "waterUse": 0.03,
+      "fertilityUse": 0.006,
+      "detritus": 60,
+      "essence": 0.4,
+      "regrow": 0.0,
+      "flower": false,
+      "perennial": true,
+      "sowCost": 150,
+      "fruitEaters": [],
+      "bank": false
+    },
+    {
+      "id": "apple",
+      "name": "Táo dại",
+      "layer": 2,
+      "ground": "land",
+      "growMinutes": 1440,
+      "lifeMinutes": 20160,
+      "moisture": [
+        25,
+        40,
+        80,
+        100
+      ],
+      "fertilityMin": 30,
+      "lightMin": 60,
+      "seedsPerHour": 0.1,
+      "seedRange": 3,
+      "waterUse": 0.03,
+      "fertilityUse": 0.006,
+      "detritus": 40,
+      "essence": 0.3,
+      "regrow": 0.0,
+      "flower": true,
+      "perennial": true,
+      "sowCost": 100,
+      "fruitEaters": [
+        "rabbit",
+        "fox"
+      ],
+      "bank": false
+    },
+    {
+      "id": "willow",
+      "name": "Liễu",
+      "layer": 2,
+      "ground": "land",
+      "growMinutes": 1440,
+      "lifeMinutes": 20160,
+      "moisture": [
+        40,
+        60,
+        100,
+        100
+      ],
+      "fertilityMin": 20,
+      "lightMin": 50,
+      "seedsPerHour": 0.05,
+      "seedRange": 2,
+      "waterUse": 0.04,
+      "fertilityUse": 0.006,
+      "detritus": 40,
+      "essence": 0.3,
+      "regrow": 0.0,
+      "flower": false,
+      "perennial": true,
+      "sowCost": 120,
+      "fruitEaters": [],
+      "bank": true
+    }
+  ],
+  "animals": [
+    {
+      "id": "rabbit",
+      "name": "Thỏ",
+      "role": "herbivore",
+      "diet": "plant",
+      "habitat": "land",
+      "foodPlant": "grass",
+      "needPerMinute": 1.5,
+      "lifeMinutes": 2880,
+      "matureMinutes": 60,
+      "litter": 2,
+      "cooldownMinutes": 90,
+      "range": 5,
+      "essence": 0.25,
+      "detritus": 5
+    },
+    {
+      "id": "fox",
+      "name": "Cáo",
+      "role": "predator",
+      "diet": "prey",
+      "habitat": "land",
+      "prey": "rabbit",
+      "minutesPerCatch": 240,
+      "preyPerPredator": 8,
+      "homing": false,
+      "lifeMinutes": 5760,
+      "matureMinutes": 180,
+      "litter": 1,
+      "cooldownMinutes": 720,
+      "range": 12,
+      "essence": 0.6,
+      "detritus": 10
+    },
+    {
+      "id": "bee",
+      "name": "Ong",
+      "role": "pollinator",
+      "diet": "nectar",
+      "habitat": "land",
+      "lifeMinutes": 2880,
+      "matureMinutes": 240,
+      "litter": 1,
+      "cooldownMinutes": 480,
+      "range": 6,
+      "essence": 0.3,
+      "detritus": 0
+    },
+    {
+      "id": "fish",
+      "name": "Cá",
+      "role": "herbivore",
+      "diet": "plant",
+      "habitat": "water",
+      "foodPlant": "duckweed",
+      "needPerMinute": 0.5,
+      "lifeMinutes": 2880,
+      "matureMinutes": 120,
+      "litter": 3,
+      "cooldownMinutes": 180,
+      "range": 3,
+      "essence": 0.2,
+      "detritus": 3
+    },
+    {
+      "id": "heron",
+      "name": "Diệc",
+      "role": "predator",
+      "diet": "prey",
+      "habitat": "land",
+      "prey": "fish",
+      "minutesPerCatch": 300,
+      "preyPerPredator": 5,
+      "homing": true,
+      "lifeMinutes": 5760,
+      "matureMinutes": 240,
+      "litter": 1,
+      "cooldownMinutes": 900,
+      "range": 15,
+      "essence": 0.6,
+      "detritus": 8
+    }
+  ],
+  "invites": [
+    {
+      "species": "worm",
+      "cost": 20,
+      "requires": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 6
+      },
+      "local": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 6
+      }
+    },
+    {
+      "species": "rabbit",
+      "cost": 60,
+      "requires": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 10
+      },
+      "local": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 10
+      }
+    },
+    {
+      "species": "bee",
+      "cost": 80,
+      "requires": {
+        "livingPlants": [
+          "flower"
+        ],
+        "count": 4
+      },
+      "local": {
+        "livingPlants": [
+          "flower",
+          "lotus"
+        ],
+        "count": 4
+      }
+    },
+    {
+      "species": "fox",
+      "cost": 200,
+      "requires": {
+        "animals": "rabbit",
+        "count": 6
+      },
+      "local": {
+        "animals": "rabbit",
+        "count": 6
+      }
+    },
+    {
+      "species": "fish",
+      "cost": 120,
+      "requires": {
+        "livingPlants": [
+          "duckweed"
+        ],
+        "count": 4
+      },
+      "local": {
+        "livingPlants": [
+          "duckweed"
+        ],
+        "count": 3
+      }
+    },
+    {
+      "species": "heron",
+      "cost": 300,
+      "requires": {
+        "animals": "fish",
+        "count": 6
+      },
+      "local": {
+        "animals": "fish",
+        "count": 6
+      }
+    }
+  ],
+  "essence": {
+    "diversityPerSpecies": 0.15,
+    "diversityPerRole": 0.25,
+    "diversityPerBorrowedRole": 0.125,
+    "dominanceLimit": 0.4,
+    "dominancePenalty": 1.5,
+    "animalBiomassWeight": 3,
+    "predatorRatioMin": 4,
+    "predatorRatioMax": 10,
+    "bareLimit": 0.3,
+    "penalty": 0.2,
+    "bonus": 0.2,
+    "balanceMin": 0.3,
+    "balanceMax": 1.2
+  },
+  "health": {
+    "base": 0.4,
+    "roles": 0.3,
+    "balance": 0.3,
+    "rolesNeeded": 5,
+    "borrowedRoleWeight": 0.5
+  },
+  "naturalBalance": {
+    "bareBiomass": 20,
+    "bareRegion": 0.5
+  },
+  "restEssence": {
+    "targetMinutes": 480,
+    "maxMinutes": 10
+  },
+  "levels": [
+    0,
+    5000,
+    50000,
+    250000
+  ],
+  "moments": {
+    "lifetimeMinutes": 30,
+    "fadeLastMinutes": 3,
+    "retryMinutes": 120,
+    "overgrazedCooldownMinutes": 360,
+    "giftMinutes": 3,
+    "giftMin": 5,
+    "bigGiftMinutes": 20,
+    "bigGiftMin": 20,
+    "newGiftMinGapMinutes": 10,
+    "maxInView": 3,
+    "maxPerZone": 1,
+    "giftSeedGapMinutes": 180,
+    "visitorChancePerMinute": 0.0020833333333333333,
+    "visitorMinGapMinutes": 240,
+    "visitorDurationMinutes": 10,
+    "birthRecoveringMax": 4,
+    "discover": {
+      "flower": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 10
+      },
+      "berry": {
+        "livingPlants": [
+          "grass"
+        ],
+        "count": 20
+      },
+      "lotus": {
+        "pondLivingPlants": [
+          "duckweed"
+        ],
+        "count": 3
+      },
+      "oak": {
+        "zoneLivingPlants": [
+          "berry"
+        ],
+        "count": 4
+      },
+      "apple": {
+        "livingPlants": [
+          "flower"
+        ],
+        "count": 10,
+        "animals": "bee",
+        "animalCount": 1
+      },
+      "willow": {
+        "pondLivingPlants": [
+          "reed"
+        ],
+        "count": 2
+      }
+    },
+    "drought": {
+      "moistureBelow": 25,
+      "yellowPlants": 3,
+      "yellowHealthBelow": 60,
+      "endMoistureAbove": 40
+    },
+    "overgrazed": {
+      "hungryHerbivores": 3
+    }
+  },
+  "modelPlayer": {
+    "rainBelowMoisture": 25,
+    "reviveReserve": 50,
+    "visitMinutes": 300
+  },
+  "biomeModel": {
+    "_about": "GDD 12 (đang kiểm chứng bằng biomesim.py). Unity chưa đọc mục này; khi port sẽ chuyển vào plants / animals.",
+    "plantBiomes": {
+      "grass": [
+        "meadow"
+      ],
+      "flower": [
+        "meadow"
+      ],
+      "berry": [
+        "meadow",
+        "forest"
+      ],
+      "duckweed": [
+        "pond"
+      ],
+      "lotus": [
+        "pond"
+      ],
+      "reed": [],
+      "oak": [
+        "forest"
+      ],
+      "apple": [
+        "forest"
+      ],
+      "willow": [],
+      "fern": [
+        "forest"
+      ]
+    },
+    "groundCover": {
+      "grass": "meadow",
+      "fern": "forest"
+    },
+    "borderColumns": 5,
+    "borderFactor": 0.5,
+    "wastelandSprout": 0.4,
+    "wastelandFertility": 35,
+    "sownWastelandMoisture": 25,
+    "sowRangeOnWasteland": 5,
+    "corridorRange": 5,
+    "gardenCover": 0.8,
+    "plants": [
+      {
+        "id": "fern",
+        "name": "Dương xỉ",
+        "layer": 0,
+        "ground": "land",
+        "growMinutes": 30,
+        "lifeMinutes": 2880,
+        "moisture": [
+          25,
+          40,
+          90,
+          100
+        ],
+        "fertilityMin": 15,
+        "lightMin": 20,
+        "seedsPerHour": 2.0,
+        "seedRange": 2,
+        "waterUse": 0.02,
+        "fertilityUse": 0.004,
+        "detritus": 15,
+        "essence": 0.06,
+        "regrow": 0.0,
+        "flower": false,
+        "perennial": true,
+        "sowCost": 8,
+        "fruitEaters": [],
+        "bank": false
+      }
+    ],
+    "animals": [
+      {
+        "id": "squirrel",
+        "name": "Sóc",
+        "role": "herbivore",
+        "diet": "nuts",
+        "habitat": "land",
+        "nutTree": "oak",
+        "minTrees": 2,
+        "treesPerAnimal": 0.5,
+        "lifeMinutes": 2880,
+        "matureMinutes": 120,
+        "litter": 2,
+        "cooldownMinutes": 360,
+        "range": 6,
+        "essence": 0.25,
+        "detritus": 3,
+        "buryRange": 5
+      }
+    ],
+    "foxAlsoHunts": [
+      "squirrel"
+    ],
+    "discover": {
+      "fern": {
+        "zoneLivingPlants": [
+          "berry"
+        ],
+        "count": 4
+      },
+      "oak": {
+        "livingPlants": [
+          "fern"
+        ],
+        "count": 4
+      },
+      "apple": {
+        "livingPlants": [],
+        "count": 0,
+        "animals": "bee",
+        "animalCount": 1,
+        "needsBiome": "forest"
+      }
+    },
+    "arrival": {
+      "afterMinutes": 120,
+      "absentBelow": 2
+    },
+    "habitat": {
+      "worm": {
+        "biomes": [
+          "meadow",
+          "forest"
+        ],
+        "detritusMin": 5,
+        "moistureMin": 30,
+        "winter": true
+      },
+      "bee": {
+        "biomes": [
+          "meadow",
+          "forest",
+          "pond"
+        ],
+        "flowersMin": 6,
+        "shelterMin": 1,
+        "seasons": [
+          0,
+          1
+        ]
+      },
+      "rabbit": {
+        "biomes": [
+          "meadow"
+        ],
+        "grassMin": 12,
+        "shelterMin": 1
+      },
+      "fox": {
+        "biomes": [
+          "meadow",
+          "forest"
+        ],
+        "preyMin": 8,
+        "denMin": 3,
+        "rangeMin": 20
+      },
+      "fish": {
+        "duckweedMin": 4
+      },
+      "heron": {
+        "fishMin": 6,
+        "reedsMin": 2,
+        "willowMin": 1
+      },
+      "squirrel": {
+        "biomes": [
+          "forest"
+        ],
+        "matureOaksMin": 2
+      }
+    },
+    "modelPlayerExpandReserve": 150
+  },
+  "social": {
+    "breedSeason": [
+      1.2,
+      0.8,
+      0.4,
+      0.0
+    ],
+    "breedAbove": 75,
+    "species": {
+      "rabbit": {
+        "social": "herd",
+        "groupMax": 4,
+        "spread": 2,
+        "herdSpacing": 6,
+        "anchorStepMinutes": 3,
+        "speed": 1,
+        "restMin": 10,
+        "restMax": 40,
+        "cooldownMinutes": 240,
+        "splitAt": 4,
+        "capLitter": true
+      },
+      "fish": {
+        "social": "herd",
+        "groupMax": 8,
+        "spread": 1,
+        "herdSpacing": 10,
+        "anchorStepMinutes": 5,
+        "speed": 1,
+        "restMin": 5,
+        "restMax": 20,
+        "cooldownMinutes": 360,
+        "splitAt": 4
+      },
+      "fox": {
+        "social": "solitary",
+        "territory": 10,
+        "denSpacing": 16,
+        "searchRange": 40,
+        "avoid": 4,
+        "speed": 2,
+        "restMin": 20,
+        "restMax": 60,
+        "cooldownMinutes": 3000,
+        "litter": 2,
+        "pairs": true,
+        "minutesPerCatch": 900
+      },
+      "heron": {
+        "social": "solitary",
+        "territory": 15,
+        "denSpacing": 20,
+        "searchRange": 40,
+        "avoid": 4,
+        "speed": 2,
+        "restMin": 30,
+        "restMax": 90,
+        "cooldownMinutes": 3000,
+        "pairs": false,
+        "minutesPerCatch": 600
+      },
+      "squirrel": {
+        "social": "solitary",
+        "territory": 4,
+        "denSpacing": 4,
+        "searchRange": 20,
+        "avoid": 2,
+        "speed": 1,
+        "restMin": 10,
+        "restMax": 30,
+        "cooldownMinutes": 720,
+        "pairs": false
+      }
+    }
+  },
+  "hunting": {
+    "burrow": {
+      "species": "rabbit",
+      "spread": 4,
+      "relocateAfterMinutes": 60,
+      "relocateMin": 3,
+      "reuseRange": 3,
+      "decayMinutes": 4320,
+      "hungrySpread": 8
+    },
+    "prey": {
+      "rabbit": {
+        "alertRange": 4,
+        "fleeSpeed": 2,
+        "hideMinutes": 10,
+        "wary": 4,
+        "refuge": "burrow"
+      },
+      "squirrel": {
+        "alertRange": 5,
+        "fleeSpeed": 2,
+        "hideMinutes": 10,
+        "wary": 3,
+        "refuge": "den"
+      },
+      "fish": {
+        "alertRange": 4,
+        "fleeSpeed": 1,
+        "hideMinutes": 0,
+        "wary": 0,
+        "refuge": "far"
+      }
+    },
+    "predators": {
+      "fox": {
+        "chaseSpeed": 4,
+        "sight": 12,
+        "pounce": 0.9,
+        "chaseMaxMinutes": 15,
+        "tiredMinutes": 20
+      },
+      "heron": {
+        "chaseSpeed": 3,
+        "sight": 30,
+        "pounce": 0.4,
+        "chaseMaxMinutes": 20,
+        "tiredMinutes": 30
+      }
+    },
+    "sleep": {
+      "inRefuge": {
+        "rabbit": [
+          5.5,
+          18.5
+        ],
+        "squirrel": [
+          6,
+          18
+        ]
+      },
+      "lagHours": 0.7,
+      "drain": 0.3
+    }
+  }
+}
