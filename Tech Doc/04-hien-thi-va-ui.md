@@ -64,7 +64,7 @@ MomentDirector.Update(world, events, viewport, nowMinute)
 
 | Thành phần (GDD 10) | Lớp | Ghi chú |
 |---------------------|-----|---------|
-| Khay thần thu gọn / mở rộng (§3) | `GodTrayView` | ✅ M4: đọc `World` 4 lần/giây (không tách Model, khay chỉ đọc). Độ trễ mở 150 ms / đóng 600 ms đặt trong Inspector để chỉnh khi chơi thử |
+| Khay thần thu gọn / mở rộng (§3) | `GodTrayView` | ✅ M4: đọc `World` 4 lần/giây (không tách Model, khay chỉ đọc). Độ trễ mở 150 ms / đóng 600 ms đặt trong Inspector để chỉnh khi chơi thử. ✅ Nút gieo theo biome (`biomeButtons[]` theo thứ tự `Biome.Meadow, Forest, Pond`): một loài vào nhóm `b` nếu `Sowable && IsDiscovered && (NativeTo(b) || (Biomes == 0 && b == Pond))`, cỏ phủ trước rồi theo `PlantCost`. Mỗi mục xổ ra gắn `Hint` đọc `species.<id>.tip` (≤ 100 ký tự, `LocalizationTests` kiểm) |
 | Công cụ Gieo / Mưa (§3.3) | `ToolController` | Trạng thái: `None` (mặc định), `Sow(id)`, `Rain`. Huỷ bằng chuột phải / Esc / 20 giây không dùng. Lớp tô cột theo `World.Suitability`; ✅ hình mờ xem trước (`ghost`, sprite của loài, cây tán theo mùa); `GodTrayView` ẩn cả khay bằng `CanvasGroup` khi `Tools.Kind != None` |
 | Nút cuộn (§4) | `ScrollButton` | Độ đục theo khoảng cách con trỏ (§6.1) |
 | Phím cuộn ← → / A D (§4) | `WorldView.HandleScrollKeys` | Gọi `Viewport.Nudge` khi nhấn, `Viewport.Hold` sau 0.25 s giữ |

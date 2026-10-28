@@ -51,7 +51,7 @@ Mở sau khi chuột ở trên khay **150 ms** (tránh mở nhầm khi chuột l
 ```
 ┌──────────────────────────────────────────────────┐
 │ ✿ Sinh khí 1,243   +38/ph        🌸 Xuân · Cấp 2 ▮▮▮▯▯│  ← hàng 1: trạng thái
-│ [🌱 Gieo ▾] [🌧 Mưa 30] [🔒] [🔒]   [💌 1]           │  ← hàng 2: quyền năng
+│ [Đồng cỏ ▾][Rừng ▾][Ao ▾] [🌧 Mưa 30] [🔒] [🔒]      │  ← hàng 2: quyền năng
 │ ░░░░░▓▓▓▓█████████▓▓≈≈▓▓▓░░░░░░░░░░░░░░░░░░░░░░⌂   │  ← hàng 3: bản đồ mini
 │                                   [📖] [⚙] [–]      │  ← hàng 4: nút phụ
 └──────────────────────────────────────────────────┘
@@ -69,8 +69,8 @@ Mở sau khi chuột ở trên khay **150 ms** (tránh mở nhầm khi chuột l
 **Hàng 2 · Quyền năng**
 | Nút | Hành vi |
 |-----|---------|
-| 🌍 **Phủ đất ▾** | ✅ 2026-10-28: nút riêng cho **cỏ phủ**, loài quyết định biome (`Cỏ 5` → Đồng cỏ, `Dương xỉ 8` → Rừng, [12 §2](12-moi-truong-song.md#2-biome-theo-cột)). Đứng trước 🌱 Gieo. Click: hàng xổ ngang như Gieo, chỉ có cỏ phủ. Chọn một loài thì bật công cụ Gieo (§3.3) với loài đó |
-| 🌱 **Gieo ▾** | Click: mở một hàng nhỏ **xổ ngang** ngay trên khay, mọc sang trái (✅ 2026-10-24: dải chỉ cao 180 pt nên xổ dọc bị cắt ở mép trên; 💌 / 🌿 cũng vậy), gồm **mọi loài gieo được trừ cỏ phủ** (✅ 2026-10-28: mở từ đầu, không cần khám phá; cỏ phủ ở nút 🌍) (biểu tượng + giá, ví dụ `Hoa dại 10`, `Mâm xôi 25`, `Sen 25`, `Táo dại 100`, `Sồi 150`, `Liễu 120`). Chọn một loài thì bật công cụ Gieo (§3.3). Loài chưa đủ Sinh khí thì mờ |
+| 🌾 **Đồng cỏ ▾** · 🌲 **Rừng ▾** · 💧 **Ao ▾** | ✅ 2026-10-28: thay hai nút 🌍 Phủ đất và 🌱 Gieo. Mỗi nút là một **nhóm biome**: click mở một hàng nhỏ **xổ ngang** ngay trên khay, mọc sang trái (✅ 2026-10-24: dải chỉ cao 180 pt nên xổ dọc bị cắt ở mép trên), gồm **mọi loài gieo được mọc tốt ở biome đó** (biểu tượng + giá). **Cỏ phủ đứng đầu** (loài quyết định biome, [12 §2](12-moi-truong-song.md#2-biome-theo-cột)), sau đó xếp theo giá tăng dần. Một loài thuộc nhiều biome thì có mặt ở **mọi** nhóm đó. Cây bờ ao (không theo biome, 12 §2.3) nằm trong nhóm Ao. Hiện tại: **Đồng cỏ** `Cỏ 5` · `Hoa dại 10` · `Mâm xôi 25`; **Rừng** `Dương xỉ 8` · `Mâm xôi 25` · `Táo dại 100` · `Sồi 150`; **Ao** `Sen 25` · `Liễu 120`. Chọn một loài thì bật công cụ Gieo (§3.3); nút nhóm đó sáng lên. Loài chưa đủ Sinh khí thì mờ |
+| 💬 Chú thích loài | ✅ 2026-10-28: rê chuột lên một loài trong hàng xổ thì chú thích nói **tác dụng của loài đó**, tối đa **100 ký tự**, nói nó đổi gì trong hệ sinh thái (đổi biome, nuôi loài nào, cho chỗ trú…), ví dụ *"Cỏ phủ: biến đất thành Đồng cỏ. Thức ăn của Thỏ."* Rê lên nút nhóm thì chú thích nói nhóm đó dùng để làm gì. ✅ Chơi thử 2026-10-28: **mọi chú thích của khay hiện sát phần tử đang rê chuột** (để ở góc dưới bên trái khay khó đọc): ngay phía trên; khi hàng xổ đang mở mà chuột ở trên khay thì xuống dưới để không che hàng xổ; hết chỗ thì lật phía, không tràn khỏi mép dải |
 | 🌧 **Mưa 30** | Bật công cụ Mưa (§3.3) |
 | 🔒 ô khoá | Quyền năng cấp cao hơn, hiện bóng mờ. Rê chuột: *"Gió · mở ở Cấp 2"*. Trong slice, Gió / Nắng ấm / Nắn đất / Sét **vẫn khoá kể cả khi đủ cấp**, kèm dòng *"Sắp có"* |
 | 💌 **n** | Chỉ hiện khi có lời mời đang chờ (09 §3.2). Click: khung nhìn trượt tới con vật đang chờ. Không mời trực tiếp từ khay, vì lời mời là khoảnh khắc ở ngoài thế giới |
