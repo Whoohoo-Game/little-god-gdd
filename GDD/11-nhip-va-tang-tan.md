@@ -5,6 +5,8 @@
 
 ## 1. Nhịp ×100
 
+> ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md), Q58):** **bỏ tăng tốc thời gian.** Mọi thời gian là thời gian thật; **một mùa = 60 phút** (6 ngày đêm); ngày đêm 10 phút và nếp sinh hoạt §1.5 giữ nguyên. Bảng thời gian dưới đây và kiểm chứng §1.4 là của nhịp ×100 cũ, xem bảng mới ở [18 §3](18-nhip-theo-lan-liec.md#3-vòng-đời-theo-nhóm--q58).
+
 ### 1.1 Đồng hồ
 - ✅ **1 phút thật = 100 phút mô phỏng** (`time.simMinutesPerRealMinute`). Mọi luật sinh thái trong `balance.json` tính theo **phút mô phỏng**, nên giữ nguyên số; chỉ đồng hồ chạy nhanh hơn. Vì vậy cân bằng của 07 và 08 vẫn đúng.
 - ✅ **Q21: một mùa = 30 phút thật** (3 000 phút mp, `time.seasonMinutes`) = **3 ngày đêm** của game (§1.5); một năm = 2 giờ thật. ↻ **2026-10-24:** trước là 2 880 phút mp ≈ 29 phút thật. Mùa tính theo **thời gian mô phỏng đã chạy**, không theo ngày lịch. Tắt app thì thế giới ngủ, mùa đứng yên.

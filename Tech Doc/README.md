@@ -18,6 +18,7 @@
 | 09 | [Sinh động, phản hồi & khoảnh khắc rút gọn](09-sinh-dong-va-phan-hoi.md) | GDD 15 → code: phản hồi tức thì, sinh vật trang trí, hành vi nhỏ, `MomentDirector` 6 loại, `balance.json → moments` mới | ✅ Xong code, chờ thử tay |
 | 10 | [Nắn đất](10-nan-dat.md) | GDD 16 → code: ao động (`World.Ponds`), đào / lấp từng ô, môi trường ao tự sinh, công cụ ⛰️, save v6 | ✅ Xong code, chờ thử tay |
 | 11 | [Hươu và Sói](11-huou-va-soi.md) | GDD 17 → code: Hươu, Sói, Dương xỉ mọc lại, một cặp thú săn mỗi khu, con lẻ nhập đàn | ✅ Xong code, chờ thử tay |
+| 12 | [Thời gian thật](12-thoi-gian-that.md) | GDD 18 → code: bỏ ×100, tick hành vi 0.6 giây + bước sinh thái 3.6 giây, mùa 1 000 bước, cây Thảm / Bụi lớn nhanh, loài mới cách 15 phút, khoảnh khắc đếm theo tick, save v7 | ✅ Xong code, chờ thử tay; ⚠️ bị săn nhiều hơn mô hình |
 
 **Ký hiệu:** dùng chung với GDD (✅ đã chốt · 💡 đề xuất · ❓ cần quyết định). ⚠️ là rủi ro kỹ thuật.
 
@@ -35,7 +36,7 @@
 Công cụ: Unity **6000.6.3f1**, URP 2D, Input System 1.20, uGUI 2.6, Test Framework 1.8, UniWindowController (git, commit `304f9ba`).
 
 ## Quyết định kỹ thuật
-✅ Đã chốt hết ngày 2026-10-23.
+✅ T1–T5 chốt ngày 2026-10-23, T6 ngày 2026-10-28.
 
 | # | Câu hỏi | Quyết định | Chi tiết |
 |---|---------|------------|----------|
@@ -44,10 +45,12 @@ Công cụ: Unity **6000.6.3f1**, URP 2D, Input System 1.20, uGUI 2.6, Test Fram
 | ✅ T3 | Biểu tượng menu bar / system tray và khởi động cùng máy cần plugin native | Plugin native `LittleGodNative` cho macOS và Windows, làm ở **mốc M6**; trước đó dùng nút Ẩn/Thoát tạm | [04 §6.3](04-hien-thi-va-ui.md#63-menu-hệ-thống--khởi-động-cùng-máy) |
 | ✅ T4 | Giữ uGUI hay chuyển UI Toolkit? | **Giữ uGUI**, chuyển UI sang prefab | [04 §5](04-hien-thi-va-ui.md#5-ui) |
 | ✅ T5 | Thư viện JSON cho save | `com.unity.nuget.newtonsoft-json` | [03 §5](03-du-lieu-thoi-gian-luu-game.md#5-lưu-game) |
+| ✅ T6 | Hành vi giữ nhịp cũ còn vòng đời chậm ~6 lần (GDD 18): làm thế nào? | Tách tick hành vi (0.6 giây) và bước sinh thái (6 tick = 3.6 giây); số `balance.json` giữ nguyên đơn vị của từng phần | [12 §1](12-thoi-gian-that.md#1-hai-nhịp-hành-vi-và-sinh-thái--t6) |
 
 ## Nhật ký quyết định
 | Ngày | Quyết định |
 |------|------------|
+| 2026-10-28 | ✅ **T6** (tick hành vi 0.6 giây + bước sinh thái 6 tick) và **GDD 18 → code** ([12](12-thoi-gian-that.md)): `World.Tick()` / `Ticks`, `Step()` = 6 tick, `StepAnimals(s, live)`; `balance.json` `time.ticksPerRealMinute` 100 / `ticksPerStep` 6, mùa 1 000 bước, cây Thảm / Bụi lớn ×3, bong bóng 30 phút, loài mới cách 15 phút (`LastNewSpeciesMinute`); khoảnh khắc và ngày đêm đếm theo tick; save v7. C# 10 seed (liếc 15 phút): kết 5.3 giờ thật (Python 5.1), đất phủ kín 2.8 giờ; ⚠️ bị săn ~35 / ngày mp so với ~19 của Python (+85%), chưa chỉnh. 132 EditMode + 4 PlayMode xanh, build macOS Dev thành công |
 | 2026-10-23 | ✅ Technical Doc viết cho vertical slice, dựa trên GDD 07–10 |
 | 2026-10-23 | ✅ **T1:** `Docs/GDD/sim/balance.json` là nguồn số cân bằng duy nhất; `worldsim.py` và Unity cùng đọc; test fail nếu bản sao trong `Assets/LittleGod/Data` lệch |
 | 2026-10-23 | ✅ **T2:** Sổ tay và Cài đặt làm bằng cách tạm nới cao cửa sổ dải đất khi mở panel (cách A, 04 §6.2) |
@@ -88,3 +91,5 @@ Công cụ: Unity **6000.6.3f1**, URP 2D, Input System 1.20, uGUI 2.6, Test Fram
 | 2026-10-28 | ✅ **Mở hết cây gieo được** (GDD 04 §3): `World.KnowSowablePlants()` khi tạo thế giới và khi đọc save cũ; bỏ nguồn 🌱 trong `MomentDirector`. Test mới: `NoSeedDiscoveryMoments`, `OldSave_UnlocksAllSowablePlants` |
 | 2026-10-28 | ✅ Nút **🌍 Phủ đất** (GDD 10 §2): `UiPrefabBuilder` thêm `coverButton` trước Gieo (Gieo, Mưa, ô khoá dời phải 68 pt); `GodTrayView` có `PopupKind.Cover` chỉ liệt kê cây `IsCover`, Gieo bỏ cây phủ |
 | 2026-10-28 | ✅ **GDD 17 → code** ([11](11-huou-va-soi.md)): Hươu, Sói trong `biomeModel.animals`; Dương xỉ `regrow` 0.4; luật Q52 (`PreyFallback`), Q54 (`PredatorPresent`), Q55 (`JoinLoneHerds`), Q57 (`UpdateLone`, `Animal.Alone` trong save); hang Sói chỉ trong Rừng (`denBiome`); `PixelSprites.Deer/Wolf`, hành vi trong `AnimalView`. `forestsim.py` đọc số từ `balance.json`. Thống kê C# 10 seed: Hươu có mặt 100%, Sói 100% ở 8/10 seed, kết 0.6–1.2 giờ thật. 124 EditMode + 4 PlayMode xanh |
+| 2026-10-28 | ✅ **Vùng trời tắt mặc định** (GDD 10 §2.1, [04](04-hien-thi-va-ui.md)): `PlayerData.Sky`, `SkyView.Visible`, `MomentDirector`, `WorldView.ToggleSky` bỏ mây 💧 khi tắt, nút ☁ `skyButton` trên khay + phím K |
+| 2026-10-29 | ✅ **Mọi cơn mưa từ mây, mây 💧 tự bung sau 5 giây** ([09 §9.8](09-sinh-dong-va-phan-hoi.md)): `MomentDirector.Burst`, `rainCloud.lifetimeSeconds` 5; bỏ `RainEffect`, thêm `CloudView.Shower` |

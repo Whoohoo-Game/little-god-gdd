@@ -34,7 +34,7 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 | 03 | [Hệ sinh thái](03-he-sinh-thai.md) | Mô phỏng thực vật, động vật, chuỗi thức ăn | 💡 Nháp |
 | 04 | [Quyền năng của thần](04-quyen-nang-than.md) | Cách người chơi tương tác | 💡 Nháp |
 | 05 | [Mở rộng thế giới](05-mo-rong-the-gioi.md) | Tiến trình, biome, mục tiêu cuối | 💡 Nháp |
-| 06 | [Câu hỏi mở](06-cau-hoi-mo.md) | Các quyết định cần chốt | ✅ Đã chốt hết vòng 5 (Q43–Q49) |
+| 06 | [Câu hỏi mở](06-cau-hoi-mo.md) | Các quyết định cần chốt | ✅ Đã chốt hết (tới Q62) |
 | 07 | [Hệ sinh thái: đặc tả chi tiết](07-he-sinh-thai-chi-tiet.md) | Số liệu, công thức cho đồng cỏ (luật đổi 2026-10-23, một số kết quả đo bằng luật cũ) | 💡 Đã kiểm chứng bằng mô hình |
 | 08 | [Nhiều vùng & biome Ao](08-nhieu-vung-va-ao.md) | Hồi sinh 14 vùng, giá hồi sinh, Sức khoẻ vùng, biome Ao, nhịp kết game | 💡 Đã kiểm chứng bằng mô hình |
 | 09 | [Khoảnh khắc](09-khoanh-khac.md) | Loại bong bóng, điều kiện, phần thưởng, giới hạn hiển thị, chỉ báo ngoài màn hình | 💡 Đã đặc tả, chưa kiểm chứng |
@@ -46,12 +46,14 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 | 15 | [Sinh động & phản hồi](15-sinh-dong-va-phan-hoi.md) | Phản hồi tức thì cho mưa / gieo / lấn đất, sinh vật trang trí, hành vi nhỏ khi nghỉ, khoảnh khắc M5 rút gọn theo nhịp ×100 | ✅ Đã chốt, đã đo tần suất khoảnh khắc |
 | 16 | [Nắn đất](16-nan-dat.md) | Đào / lấp từng ô nước ở bất kỳ đâu: ao động, môi trường tự sinh theo độ rộng, giá, thao tác | ✅ Đã chốt, chưa kiểm chứng bằng mô hình |
 | 17 | [Hươu và Sói](17-huou-va-soi.md) | Rừng có cặp ăn cỏ / ăn thịt riêng: Hươu gặm Dương xỉ, Sói săn Hươu | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
+| 18 | [Thời gian thật & nhịp theo lần liếc](18-nhip-theo-lan-liec.md) | Bỏ tăng tốc ×100: mọi thời gian là thời gian thật, mùa 1 giờ, vòng đời theo nhóm; nhịp cho người liếc 15–30 phút (loài mới lần lượt, bong bóng 30 phút, mùa Đông nghỉ) | ✅ Đã chốt, đã kiểm chứng bằng mô hình |
 | — | [`sim/ecosim.py`](sim/ecosim.py) | Mô hình Python dùng để kiểm chứng số liệu của file 07 | Công cụ |
 | — | [`sim/worldsim.py`](sim/worldsim.py) | Mô hình nhiều vùng cho file 08–09 | Công cụ |
 | — | [`sim/biomesim.py`](sim/biomesim.py) | Mô hình môi trường sống cho file 12 (biome theo cột, lấn đất hoang, động vật tự đến) | Công cụ |
 | — | [`sim/socialsim.py`](sim/socialsim.py) | Mô hình bầy đàn / lãnh thổ / nhịp sinh sản cho file 13 (dựa trên `biomesim.py`) | Công cụ |
 | — | [`sim/huntsim.py`](sim/huntsim.py) | Mô hình hang thỏ, né thú săn, rượt bắt cho file 14 (dựa trên `socialsim.py`) | Công cụ |
 | — | [`sim/momentsim.py`](sim/momentsim.py) | Đếm khoảnh khắc M5 rút gọn cho file 15 §3 (dựa trên `huntsim.py`, không đổi luật) | Công cụ |
+| — | [`sim/glancesim.py`](sim/glancesim.py) | Người chơi liếc mỗi 15–30 phút cho file 18: mỗi lần liếc thấy gì; thử tốc độ vòng đời, độ dài mùa, cây lớn nhanh, giãn loài mới, thời gian sống bong bóng (dựa trên `forestsim.py` + `momentsim.py`) | Công cụ |
 | — | [`sim/balance.json`](sim/balance.json) | **Nguồn số cân bằng duy nhất** cho `worldsim.py` và Unity (Tech Doc 03 §1). Đổi số ở đây | Dữ liệu |
 
 **Ký hiệu dùng trong tài liệu**
@@ -63,6 +65,12 @@ Thiên nhiên tự vận hành trong lúc người chơi làm việc. Người c
 
 | Ngày | Quyết định |
 |------|------------|
+| 2026-10-29 | ✅ **Mọi cơn mưa / tuyết rơi từ mây** (công cụ Mưa, mưa tự nhiên, mây 💧; cả khi vùng trời tắt), không còn rơi từ mép trên màn hình ([15 §1.1](15-sinh-dong-va-phan-hoi.md#11-mưa)). **Mây 💧 chờ 5 giây không ai click thì tự bung** thành mây mưa, miễn phí ([15 §3.4b](15-sinh-dong-va-phan-hoi.md#34b-mây-mưa-thay-bong-bóng---2026-10-27)) |
+| 2026-10-28 | ✅ **Rê chuột sát mép** trái/phải dải thì khung nhìn cuộn về phía đó như giữ nút cuộn. Nút cuộn đổi từ ô 16 × 48 thành dải tối 32 pt cao hết dải, mờ dần vào trong, mũi tên ở giữa ([10 §4](10-giao-dien.md#4-nút-cuộn--)) |
+| 2026-10-28 | ✅ **Vùng trời tắt mặc định** ([10 §2.1](10-giao-dien.md#21-vùng-trời-tắt-mặc-định--2026-10-28)), sau chơi thử: nền trời kín và nhận click cả dải nên chặn thao tác app khác ở đáy màn hình. Tắt: trong suốt, click xuyên qua, không mây nền, không mây 💧; mưa từ khay vẫn rơi nhưng không có mây. Bật lại bằng nút ☁ trên khay, phím K hoặc Cài đặt thì như cũ |
+| 2026-10-28 | ↻ **Sửa đo GDD 18 §5:** người chơi mô hình chỉ ghé ở bước kiểm tra định kỳ (mỗi 30 bước), số cũ (~6.1 giờ cho mọi nhịp ghé) sai. Đo lại 16 seed với số đã chốt: ghé 3 phút 4.7 giờ, **liếc 15 phút 5.1 giờ**, liếc 30 phút 6.5 giờ (mục tiêu 6–8 giờ). Code xong ([Tech Doc 12](../Tech%20Doc/12-thoi-gian-that.md)) |
+| 2026-10-28 | ✅ **Q58–Q62 ([18](18-nhip-theo-lan-liec.md)) chốt:** bỏ tăng tốc thời gian, mọi thời gian là thời gian thật; mùa 1 giờ; cây Thảm / Bụi lớn nhanh, mọi thứ khác chậm hơn ×100 ~6 lần; loài mới cách nhau ≥ 15 phút; bong bóng sống 30 phút; mây 💧 giữ nguyên; mùa Đông là quãng nghỉ. **GDD 18 chốt** |
+| 2026-10-28 | ✅ Thiết kế nhịp cho người **liếc mỗi 15–30 phút**. Đo bằng `glancesim.py`: ở ×100 người liếc 15 phút chỉ có ~6 lần liếc cả slice, 4–5 loài mới dồn vào một lần liếc. ✅ **Bỏ tăng tốc thời gian** (người chơi chill cùng thời gian game); ✅ **một mùa = 1 giờ**; ✅ vòng đời **chỉnh theo nhóm**; ✅ slice **~1 ngày làm việc** (6–8 giờ app mở). Ngày đêm 10 phút và hành vi giữ nguyên. 💡 Đề xuất [18](18-nhip-theo-lan-liec.md): cây Thảm / Bụi lớn nhanh, mọi thứ khác chậm hơn ×100 ~6 lần, loài mới cách nhau ≥ 15 phút, bong bóng sống 30 phút → kết ~6.1 giờ cho mọi nhịp ghé, liếc 15 phút có 25 lần liếc. Chờ Q58–Q62 |
 | 2026-10-28 | ✅ **[17 Hươu và Sói](17-huou-va-soi.md) chốt** · Đề xuất [17](17-huou-va-soi.md):** mỗi biome một cặp ăn cỏ / ăn thịt; Rừng thêm Hươu (gặm Dương xỉ) và Sói (săn Hươu). Đo `forestsim.py`: số tạm không đạt; đã chỉnh → Hươu có mặt 100%, Sói 88%, kết 8/8 trung vị 1.1 giờ thật. ✅ Q50–Q55: chốt số đã chỉnh, Dương xỉ mọc lại, Sói bắt Sóc khi vắng Hươu, kết game chờ cả hai, ~1 cặp thú săn mỗi khu, con lạc đàn nhập đàn. Đo lại: Sói còn ~1 cặp mỗi khu, có mặt 98%, kết 8/8 trung vị 1.2 giờ; Diệc tụt 4.7 → 1.8 nếu áp Q54. ✅ Q56: Diệc giữ luật cũ; ✅ Q57: thú săn một mình 1 ngày mp coi như vắng. Đo lần cuối: Hươu có mặt 100%, Sói 98% (~1 cặp mỗi khu Rừng), Diệc như gốc, kết 8/8 trung vị 1.2 giờ thật. **GDD 17 chốt** |
 | 2026-10-28 | ✅ Khay có nút **🌍 Phủ đất** riêng cho cỏ phủ đổi biome (Cỏ, Dương xỉ); 🌱 Gieo còn các cây khác ([10 §2](10-giao-dien.md)) |
 | 2026-10-28 | ✅ Nút gieo **gom theo biome**: 🌾 Đồng cỏ · 🌲 Rừng · 💧 Ao, một loài có thể ở nhiều nhóm; rê lên loài hiện chú thích tác dụng ≤ 100 ký tự ([10 §3.2](10-giao-dien.md#32-trạng-thái-mở-rộng-khi-rê-chuột-vào)) |

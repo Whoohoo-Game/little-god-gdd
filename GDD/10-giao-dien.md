@@ -10,6 +10,7 @@
 | **Thế giới là nhân vật chính** (✅ 01) | UI chiếm ít nhất có thể: lúc nghỉ chỉ còn một cục nhỏ ở góc phải và hai nút cuộn gần như trong suốt |
 | **Đọc bằng một cái liếc** | Số chỉ có trong khay thần và sổ tay. Ngoài đó dùng màu, biểu tượng, chuyển động |
 | **Click xuyên qua vùng trống** (✅ 01) | Mọi phần tử UI nhận click đều là vùng "không trong suốt". Giữ chúng **nhỏ** để không chặn cửa sổ bên dưới |
+| **Mặc định không có vùng trời** (✅ 2026-10-28) | Phía trên mặt đất, cây và con vật là trong suốt và click xuyên qua, để dải không chặn app bên dưới. Người chơi bật lại vùng trời nếu muốn (§2.1) |
 | **Không chiếm con lăn** (✅ 04 §1) | Không phần tử nào dùng con lăn chuột. Cuộn bằng nút giữ |
 | **Không modal** | Không có hộp thoại chặn thao tác. Sổ tay và cài đặt là cửa sổ riêng, đóng bất cứ lúc nào |
 | **Không làm phiền** (✅ trụ cột 3) | Không âm thanh từ UI khi người chơi không click. Không nhấp nháy. Mở/đóng đều có chuyển động mềm 150–250 ms |
@@ -19,15 +20,30 @@
  ←──────────────────────────── chiều rộng màn hình ────────────────────────────→
 ┌──────────────────────────────────────────────────────────────────────────────┐ ▲
 │                                                                              │ │
-│◀           (bầu trời trong suốt: click xuyên qua)                           ▶│ │ 180pt
+│◀       (trong suốt: click xuyên qua; vùng trời tắt mặc định, §2.1)        ▶│ │ 180pt
 │  ✨                    🐇 🐇       🦊                     💌        ┌───────┐ │ │
 │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│✿ 1.2k │▓│ │ mặt đất 12pt
 └──────────────────────────────────────────────────────────────────────────────┘ ▼
-  ▲ nút cuộn (16×48, giữa chiều cao)                              ▲ khay thần (thu gọn)
+  ▲ nút cuộn (dải mờ 32pt, cao hết dải)                              ▲ khay thần (thu gọn)
 ```
 - **Khay thần** neo ở **góc phải dưới**, ngồi trên mặt đất, cách mép phải 24pt để chừa chỗ cho nút ▶.
-- **Nút cuộn** ◀ ▶ ở hai mép, giữa chiều cao dải.
+- **Nút cuộn** ◀ ▶ ở hai mép: dải tối mờ dần cao hết dải, mũi tên giữa chiều cao.
 - Bong bóng khoảnh khắc **không bao giờ nằm dưới khay**: khi một bong bóng rơi vào vùng khay, nó được đẩy sang trái cho tới khi không còn chồng lên.
+
+### 2.1 Vùng trời: tắt mặc định (✅ 2026-10-28)
+Sau chơi thử: nền trời vẽ kín và nhận click trên cả dải 180 pt, nên dải che và chặn thao tác ở đáy màn hình của app khác.
+
+| | **Tắt** (mặc định) | **Bật** |
+|---|---|---|
+| Nền trời (màu mùa, sáng tối, ráng chiều, sao đêm) | Không vẽ: trong suốt | Như hiện tại |
+| Mây nền trôi | Không có | Như hiện tại |
+| Click vào chỗ trống phía trên mặt đất | Xuyên xuống app bên dưới | Vào game (click hơi lệch khỏi mặt đất khi gieo / mưa không hụt) |
+| Mây 💧 "Vùng đang khô" (15 §3.4b) | **Không xuất hiện**. Gọi mưa bằng nút Mưa trên khay vẫn được | Như hiện tại |
+| Mưa từ công cụ Mưa, mưa tự nhiên | ↻ (2026-10-29) Rơi từ mây mưa như khi bật ([15 §1.1](15-sinh-dong-va-phan-hoi.md#11-mưa)); mây chỉ là hình, không nhận click | Như hiện tại |
+| Mặt đất, cây, con vật, tuyết rơi, bong bóng, khay, nút cuộn | Như hiện tại | Như hiện tại |
+
+- **Bật / tắt:** nút ☁ nhỏ ở hàng nút phụ của khay (§3.2), phím **K** khi cửa sổ game đang được focus, và mục *Vùng trời* trong Cài đặt (§9). Lựa chọn lưu trong save.
+- Tắt giữa lúc mây 💧 đang chờ: mây tan ngay. Mây đang mưa (đã trả giá) thì mưa nốt rồi tan.
 
 ## 3. Khay thần
 
@@ -86,6 +102,7 @@ Mở sau khi chuột ở trên khay **150 ms** (tránh mở nhầm khi chuột l
 | 📖 Sổ tay | Mở / đóng cửa sổ Sổ tay (§6) |
 | ⚙ Cài đặt | Mở / đóng cửa sổ Cài đặt (§9) |
 | – Ẩn | Thu dải đất vào menu bar / system tray (✅ Q14). Thế giới vẫn chạy |
+| ☁ Vùng trời | Bật / tắt vùng trời (§2.1). Sáng lên khi đang bật. Phím tắt **K** |
 
 > ↻ **2026-10-24 ([12](12-moi-truong-song.md)):** khay bỏ nút 💌 và 🌿. Công cụ Gieo gieo được trên đất hoang cách đất sống ≤ 5 ô; bản đồ mini tô theo biome của từng cột (đồng cỏ, rừng, ao, đất hoang).
 
@@ -108,18 +125,19 @@ Khi bật một công cụ, con trỏ trên mặt đất có thêm một biểu 
 ## 4. Nút cuộn ◀ ▶
 | Thuộc tính | Giá trị |
 |------------|---------|
-| Kích thước · vị trí | 16 × 48 pt, sát mép trái/phải, giữa chiều cao dải |
+| Kích thước · vị trí | (✅ 2026-10-28) Dải tối rộng **32 pt**, cao hết dải, sát mép trái/phải; đậm ở mép màn hình, **trong suốt dần** vào trong (không còn ô 16 × 48 trông như nút bấm). Mũi tên ◀ ▶ ở giữa chiều cao |
 | Độ đục | 15% lúc nghỉ → 80% khi chuột cách nút < 64 pt (chuyển trong 200 ms) |
 | **Giữ** | Cuộn 4 cột/giây, tăng dần lên **24 cột/giây** sau 1.5 giây giữ. Thả ra thì trượt chậm lại trong 0.25 giây |
 | **Click một lần** | Cuộn 4 cột |
 | **Double-click** | Nhảy tới mép của vùng kế tiếp theo hướng đó (05 §2): khung nhìn trượt sao cho vùng đó vào giữa, trong 0.6 giây |
 | Ở mép thế giới | Nút phía đó **ẩn** |
+| **Rê chuột sát mép** (✅ 2026-10-28) | Con trỏ nằm trong **16 pt** sát mép trái/phải màn hình, trên cả chiều cao dải: sau 0.25 giây thì cuộn về phía đó như **giữ** nút (4 → 24 cột/giây). Rời mép thì dừng. Không cuộn khi đang giữ chuột trái hoặc khi con trỏ nằm trên khay / thẻ thông tin |
 | **Bàn phím** (✅ 2026-10-28) | **← →** hoặc **A D**: nhấn một lần cuộn 4 cột, giữ thì cuộn như giữ nút. Chỉ nhận khi cửa sổ game đang được chọn |
 | Chỉ báo khoảnh khắc | Biểu tượng 8×8 nằm ngay trên nút, kèm chấm nếu ≥ 2 (✅ 09 §7) |
 
 - Khung nhìn không bao giờ tự di chuyển, trừ khi bật chế độ theo dõi (✅ Q12).
 - **Giữ vị trí:** vị trí khung nhìn được lưu; mở app lần sau ở đúng chỗ cũ (05 §2).
-- Khi đang cầm công cụ Mưa và kéo tới sát nút cuộn, khung nhìn **không** tự cuộn theo (tránh mưa nhầm).
+- Khi đang cầm công cụ Mưa và kéo tới sát nút cuộn hoặc sát mép, khung nhìn **không** tự cuộn theo (tránh mưa nhầm).
 
 ## 5. Bản đồ mini
 Nằm trong khay mở rộng (hàng 3). Mỗi cột thế giới = **2 pt**, nên rộng 288 pt cho 144 cột, cao 10 pt.
@@ -230,6 +248,7 @@ Cửa sổ riêng như Sổ tay, 320 × 240 pt.
 | Hiện gợi ý (bong bóng nhóm C) | Bật / tắt | Bật | 09 §8 |
 | Chỉ báo ngoài màn hình | Bật / tắt | Bật | 09 §8 |
 | Chế độ theo dõi | Bật / tắt | Tắt | ✅ Q12 |
+| Vùng trời | Bật / tắt | **Tắt** | ✅ 2026-10-28, §2.1 |
 | Ngôn ngữ | Tiếng Việt / English | Theo hệ điều hành | 💡 |
 
 Câu hỏi "Khởi động cùng máy?" sau phiên đầu là một **bong bóng nhỏ trên khay**, không phải hộp thoại. Bỏ qua thì không hỏi lại.
@@ -251,7 +270,7 @@ Prototype hiện có các nút tốc độ ×1 / ×10 / ×60 (↻ trên nền nh
 
 ## 13. Kiểm chứng cần làm trong prototype
 - **Khay:** 150 ms mở / 600 ms đóng có bị mở nhầm khi người chơi kéo chuột qua góc màn hình để vào Dock / taskbar không. Nếu có, tăng lên 300 ms hoặc chỉ mở khi chuột dừng hẳn.
-- **Nút cuộn:** 16 × 48 pt có đủ dễ trúng không; có chặn click vào cửa sổ bên dưới ở mép màn hình không.
+- **Nút cuộn:** dải 32 pt cao hết dải có đủ dễ trúng không; có chặn click vào cửa sổ bên dưới ở mép màn hình không.
 - **Mưa kéo 21 cột:** có cần nhiều hơn khi thế giới rộng không.
 - **Gieo không nảy mầm vẫn mất tiền** (giá nhỏ, tỉ lệ hiện trước): có làm người chơi khó chịu không. Nếu có, hoàn lại một nửa.
 - **Sổ tay 480 × 320 pt:** có đủ chỗ cho 12 thẻ + mô tả trên màn 13" không.

@@ -5,6 +5,7 @@
 ## 1. Camera & khung nhìn
 - Camera orthographic, **1 unit = 1 cột = 32 pt**. Chiều cao dải 180 pt = 5.625 unit; ✅ mặt đất **36 pt = 1.125 unit** (ô 16 × 18 px), đủ sâu cho cá bơi trong ao.
 - ✅ **Nền trời** (`SkyView`) phủ cả dải sau thế giới: dải màu đỉnh trời → chân trời theo mùa (nội suy `seasonBlend`), sáng tối theo giờ trong ngày của game (`WorldView.DayHour`, 03 §3; sáng 7h–17h, tối 19h–5h, ráng quanh 6h và 18h; sao khi đêm), mây trôi có thị sai. Có `BoxCollider2D` phủ cả dải nên hit-test `Raycast` của UniWindowController luôn coi con trỏ trong dải là "trên game": click hụt mặt đất không rơi xuống desktop. `WorldView.Pick` bỏ qua collider này khi tìm vật dưới con trỏ (con vật > cây > đất).
+- ✅ **Vùng trời bật / tắt (2026-10-28, GDD 10 §2.1):** `SaveData.PlayerData.Sky` (JSON `"sky"`, mặc định `false`; save cũ thiếu khoá cũng là tắt). `SkyView.Visible` (đọc `PlayerData.Sky` mỗi khung): tắt thì ẩn nền, sao, mây nền và **tắt collider** của trời, nên hit-test `Raycast` chỉ còn mặt đất, cây, con vật, UI. Tuyết rơi lất phất vẫn vẽ. `MomentDirector` đọc `player.Sky`: tắt thì không xét `CheckDroughts` / `ForceCloud`, và mây 💧 đang chờ tan ngay ở `Expire` (vẫn ghi thời gian hồi); mây đang mưa trong `Clouds` mưa nốt. Bật / tắt: `WorldView.ToggleSky()` từ nút ☁ (`skyButton` trong `UiPrefabBuilder`, hàng 4 sau nút Ẩn; dòng Dev dời sang 84 pt) và phím K.
 - Thế giới rộng 144 unit. Khung nhìn rộng `screenWidthPt / 32` cột (màn 1512 pt thấy ~47 cột). Camera **không co** cả thế giới vào màn hình như prototype (`FitCamera`). Kích thước camera cố định theo chiều cao dải, còn vị trí X là `viewportX`.
 - `ViewportController` giữ `viewportX`, kẹp trong `[0, 144 − viewWidth]`, lưu vào save (03 §5). Nút cuộn, bản đồ mini, sổ tay và chế độ theo dõi đều chỉ đặt **đích**; controller trượt tới đích với easing (GDD 10 §4–5).
 - Pixel perfect: dùng **Pixel Perfect Camera** của URP 2D với Assets PPU 16. Kiểm tra trên màn Retina (1 pt = 2 px) và màn thường 1×.
@@ -66,7 +67,7 @@ MomentDirector.Update(world, events, viewport, nowMinute)
 |---------------------|-----|---------|
 | Khay thần thu gọn / mở rộng (§3) | `GodTrayView` | ✅ M4: đọc `World` 4 lần/giây (không tách Model, khay chỉ đọc). Độ trễ mở 150 ms / đóng 600 ms đặt trong Inspector để chỉnh khi chơi thử. ✅ Nút gieo theo biome (`biomeButtons[]` theo thứ tự `Biome.Meadow, Forest, Pond`): một loài vào nhóm `b` nếu `Sowable && IsDiscovered && (NativeTo(b) || (Biomes == 0 && b == Pond))`, cỏ phủ trước rồi theo `PlantCost`. Mỗi mục xổ ra gắn `Hint` đọc `species.<id>.tip` (≤ 100 ký tự, `LocalizationTests` kiểm) |
 | Công cụ Gieo / Mưa (§3.3) | `ToolController` | Trạng thái: `None` (mặc định), `Sow(id)`, `Rain`. Huỷ bằng chuột phải / Esc / 20 giây không dùng. Lớp tô cột theo `World.Suitability`; ✅ hình mờ xem trước (`ghost`, sprite của loài, cây tán theo mùa); `GodTrayView` ẩn cả khay bằng `CanvasGroup` khi `Tools.Kind != None` |
-| Nút cuộn (§4) | `ScrollButton` | Độ đục theo khoảng cách con trỏ (§6.1) |
+| Nút cuộn (§4) | `ScrollButton` | Độ đục theo khoảng cách con trỏ (§6.1). Con trỏ trong 16 pt sát mép phía nút (đọc qua `DesktopCursor`, bỏ qua khi giữ chuột trái hoặc `GraphicRaycaster` trúng UI khác) thì gọi `Viewport.Hold` sau 0.25 s |
 | Phím cuộn ← → / A D (§4) | `WorldView.HandleScrollKeys` | Gọi `Viewport.Nudge` khi nhấn, `Viewport.Hold` sau 0.25 s giữ |
 | Bản đồ mini (§5) | `MiniMapView` | Một `Texture2D` 144 × 1 cập nhật mỗi 5 giây (màu vùng), cộng một lớp overlay cho khung nhìn và chấm khoảnh khắc. Không cần một GameObject cho mỗi cột |
 | Sổ tay (§6), Cài đặt (§9) | `NotebookView`, `SettingsView` | Xem §6.2 |
@@ -78,8 +79,8 @@ Văn bản đi qua bảng `Localization` (03 §2). ✅ M4: prefab `Assets/Little
 ## 6. Cửa sổ desktop (`LittleGod.Desktop`)
 
 ### 6.1 Click xuyên qua & con trỏ
-- Giữ `UniWindowController.hitTestType = Raycast` (đang dùng): điểm dưới con trỏ có UI hoặc collider thì cửa sổ nhận click, còn lại thì xuyên qua.
-- Vùng nhận click phải **nhỏ** (✅ 01). Collider cây/động vật lấy theo bounds sprite; nút cuộn 16 × 48; khay thu gọn 64 × 22.
+- Giữ `UniWindowController.hitTestType = Raycast` (đang dùng): điểm dưới con trỏ có UI hoặc collider thì cửa sổ nhận click, còn lại thì xuyên qua. Vùng trời tắt (mặc định) thì trời không có collider, nên chỗ trống phía trên mặt đất xuyên qua.
+- Vùng nhận click phải **nhỏ** (✅ 01). Collider cây/động vật lấy theo bounds sprite; nút cuộn 32 pt × cao hết dải (gradient tạo lúc chạy trong `ScrollButton.Init`); khay thu gọn 64 × 22.
 - **Rê chuột gần nút cuộn / lên khay** khi con trỏ đang ở vùng xuyên qua: cửa sổ không nhận sự kiện chuột ở đó, nên đọc vị trí con trỏ toàn cục bằng `UniWindowController.GetCursorPosition()` (có sẵn trong gói) rồi đổi sang toạ độ dải.
 - ✅ **Tầng cửa sổ (2026-10-24):** trên macOS, UniWindowController bật topmost bằng `NSPopUpMenuWindowLevel` (101), bằng tầng menu chuột phải hệ thống, nên dải che menu ngữ cảnh của Dock. `MacWindowLevel` (Desktop) hạ cửa sổ về `NSFloatingWindowLevel` (3): vẫn trên mọi app thường, nhưng dưới Dock (20; Dock phóng to icon cũng đè lên dải) và dưới mọi menu bật lên. `DesktopStrip` kiểm tra lại mỗi giây vì plugin đặt lại 101 khi gắn lại cửa sổ. Windows: plugin dùng `HWND_TOPMOST`; menu taskbar / jump list là cửa sổ topmost mở sau nên sẽ nằm trên dải, **chưa thử trên máy Windows**.
 - ⚠️ Con lăn chuột trên mặt đất / sinh vật vẫn bị cửa sổ game giữ lại (GDD 04 §1, giới hạn đã biết). Không xử lý trong slice; ghi nhận khi chơi thử.

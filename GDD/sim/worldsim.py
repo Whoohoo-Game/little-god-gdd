@@ -41,9 +41,10 @@ B = load_balance()
 SEASONS = ["Xuân", "Hạ", "Thu", "Đông"]
 _by_season = lambda values: dict(zip(SEASONS, values))  # noqa: E731
 
-SIM_PER_REAL = B["time"]["simMinutesPerRealMinute"]  # nhịp ×100 (GDD 11 §1)
-HOURS_PER_DAY = B["time"]["seasonMinutes"] // 60     # một "ngày" của mô hình = một mùa (GDD 11 Q21: 50 giờ mp)
-MAX_HOURS = 400                                      # giờ mô phỏng tối đa của một lần chạy (= 4 giờ thật)
+TICKS_PER_STEP = B["time"]["ticksPerStep"]
+SIM_PER_REAL = B["time"]["ticksPerRealMinute"] / TICKS_PER_STEP   # bước sinh thái mỗi phút thật (GDD 18, Tech Doc 12 §1: 16.7)
+HOURS_PER_DAY = B["time"]["seasonMinutes"] / 60      # một "ngày" của mô hình = một mùa (GDD 18: 1 000 bước = 60 phút thật)
+MAX_HOURS = 400                                      # giờ mô phỏng (bước / 60) tối đa của một lần chạy (= 24 giờ thật)
 
 # Thế giới 144 cột, 14 vùng, thiết kế tay (GDD 05 §3, 08 §3). Loại: start (đã hồi sinh từ đầu),
 # meadow (đất thường), pond (có mặt nước ở giữa vùng), garden (Khu Vườn Thiêng, luôn ở đầu phải).
@@ -324,7 +325,7 @@ class World:
         # người chơi ghé (mời, mưa, hồi sinh, gieo) mỗi bao nhiêu phút mô phỏng; mặc định cùng nhịp kiểm tra định kỳ
         self.player_every = player_every or PLAYER_EVERY
         self.rains, self.rain_all = rains, rain_all
-        self.day_len = hours_per_day * 60
+        self.day_len = round(hours_per_day * 60)
         self.revive_costs, self.garden_cost, self.discount = revive_costs, garden_cost, discount
         self.natural, self.predators = natural, predators
         self.starved, self.hunted = {}, {}     # số con chết đói / bị săn, theo loài
@@ -1105,7 +1106,7 @@ def run_one(days, seed):
 
 def survey(seeds=10, rains=True, hpd=HOURS_PER_DAY, discount=REVIVE_DISCOUNT,
            natural=True, predators=True, player_every=None, trees=True):
-    days = MAX_HOURS // hpd
+    days = int(MAX_HOURS // hpd)
     print("Người chơi:", "gọi mưa vùng khô" if rains else "không gọi mưa", "·",
           "có thú săn" if predators else "KHÔNG mời thú săn", "·",
           "điều hoà tự nhiên" if natural else "luật 07 (sức chứa ×0.7, đói thì bỏ đi)",

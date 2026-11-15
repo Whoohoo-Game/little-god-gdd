@@ -23,7 +23,7 @@ Nguyên tắc: **không chiếm con lăn chuột, không tự di chuyển khung 
 
 | Thành phần | Hành vi |
 |------------|---------|
-| ✅ **Nút cuộn ◀ ▶** | Nằm ở hai mép dải. Mặc định gần như trong suốt, hiện rõ khi chuột lại gần. **Giữ** để cuộn; càng giữ lâu cuộn càng nhanh. Số liệu: [10 §4](10-giao-dien.md#4-nút-cuộn--). |
+| ✅ **Nút cuộn ◀ ▶** | Nằm ở hai mép dải. Mặc định gần như trong suốt, hiện rõ khi chuột lại gần. **Giữ** để cuộn; càng giữ lâu cuộn càng nhanh. Rê chuột sát mép trái/phải cũng cuộn như giữ nút. Số liệu: [10 §4](10-giao-dien.md#4-nút-cuộn--). |
 | 💡 **Double-click nút cuộn** | Nhảy thẳng sang vùng kế tiếp theo hướng đó. |
 | 💡 **Bản đồ mini** | Một thanh mỏng trong khay thần, mỗi pixel là một cột, tô màu theo biome; có ô vuông đánh dấu khung nhìn hiện tại. Click vào bản đồ để nhảy đến vị trí đó. Chi tiết: [10 §5](10-giao-dien.md#5-bản-đồ-mini). |
 | 💡 **Chỉ báo ngoài màn hình** | Khi có khoảnh khắc (sinh vật mới, hạn hán…) ở ngoài khung nhìn, nút cuộn phía đó hiện một bong bóng nhỏ ✨ hoặc 💌. Liếc là biết có chuyện ở bên trái hay bên phải. Chi tiết: [09 §7](09-khoanh-khac.md#7-chỉ-báo-ngoài-màn-hình-05-2). |
@@ -70,6 +70,7 @@ Game premium cần một **cái kết** rõ ràng, sau đó mới là chế đ�
 - **Kết chính:** khi đủ loài, **Cây Thế Giới nở hoa**, kèm cảnh kết thúc ngắn ngay trên dải đất. Cảnh này chỉ có hiệu ứng, không có chữ dài, không chiếm toàn màn hình.
 - **Sau kết:** chơi tiếp tự do, sưu tầm hết loài hiếm, có achievement trên Steam.
 - 💡 Thời lượng mục tiêu để xong kết chính: **khoảng 2–4 tuần** chạy nền, mỗi ngày tương tác khoảng 10–20 phút. Vì không có mô phỏng bù, thời lượng này tính theo **giờ app đang mở**, không theo ngày lịch.
+  - ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md)):** bỏ tăng tốc; slice (Đồng cỏ, Ao, Rừng) dài **~5–6.5 giờ app mở** (trung vị 4.7 giờ nếu ghé mỗi 3 phút, 5.1 giờ nếu liếc mỗi 15 phút, 6.5 giờ nếu liếc mỗi 30 phút; GDD 18 §5). Hai dòng dưới là của nhịp cũ.
   - ↻ Ở nhịp ×100 ([11 §1.4](11-nhip-va-tang-tan.md#14-kiểm-chứng-worldsimpy-survey-8--mùa-2-880-phút-mp)), kết chính của slice cần **~1.5–2 giờ app mở** với người ghé mỗi 3–6 phút, ~3.3 giờ nếu ghé mỗi 18 phút. Số dưới đây là của nhịp cũ.
   - Mô hình nhiều vùng ([08](08-nhieu-vung-va-ao.md)) cho thấy kết chính cần **~130–140 giờ app mở**. Với người mở app 6–12 giờ/ngày, đó là ~11–22 ngày lịch. Người mở ít hơn được **Sinh khí nghỉ ngơi** bù (✅ Q18), nên người mở 4h/ngày ước tính mất ~22 ngày thay vì ~33.
 

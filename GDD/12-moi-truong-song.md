@@ -46,6 +46,8 @@ Người chơi **không mua** động vật, **không mở khoá** vùng hay bio
 Cây đang sống mà biome quanh nó đổi (bị lấn) thì yếu dần và chết theo luật sức khoẻ thường (07 §5): rừng lấn đồng cỏ làm hoa dại ở đó tàn dần, đồng cỏ lấn rừng thì sồi già ở đó ngủ khô rồi chết.
 
 ## 3. Động vật tự đến (✅ Q29: ≥ 2 con, chờ 2 giờ mô phỏng)
+
+> ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md)):** thời gian chờ nay là **7 phút thật** (Q58). Thêm luật nhịp (Q59): một loài **chưa từng xuất hiện** chỉ đến khi loài mới trước đó đã đến ≥ 15 phút; tới sớm hơn thì đồng hồ chờ về 0.
 - Mỗi 30 phút mô phỏng, xét từng **đoạn biome** (cá, diệc: từng ao). Loài **vắng** ở đó (< 2 con; giun: chưa có cột nào; ong: chưa có đàn nào; thú săn: tính cả đoạn kề) mà đoạn đạt **đủ mọi điều kiện sống** (bảng dưới) **liên tục 2 giờ mô phỏng** (~1.2 phút thật) thì **một cặp** đi vào từ mép đoạn (cá: 3 con xuất hiện trong ao; ong: 2 đàn, vì ong cần ≥ 2 đàn gần nhau mới chia đàn được).
 - Lần đầu một loài xuất hiện trong thế giới là khoảnh khắc ✨ **"Loài mới"** (thay 💌): click để chào đón, có thưởng nhỏ. Không tốn gì.
 - Không đến vào mùa Đông (trừ giun). Không có luật "rời đi": điều kiện sống mất thì quần thể tự suy theo luật hiện có.

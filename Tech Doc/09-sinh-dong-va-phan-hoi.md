@@ -191,6 +191,12 @@ MonoBehaviour do `WorldView` tạo. Mỗi 0.5 giây đọc trạng thái trong k
 - Lỗi thử tay: con trỏ để yên trên đường bay thì mây chờ dừng mãi và giật lùi. Nguyên nhân: luật "rê chuột thì mây dừng" (Claude tự thêm, không có trong yêu cầu) cộng phần vẽ vẫn nội suy tới trước trong lúc mô phỏng giữ nguyên vị trí.
 - Sửa: `MomentDirector.Step` luôn cộng `CloudSpeed` cho mây chờ; `Hold` chỉ giữ thời gian sống (GDD 09 §5.1). ✅ Luật chung của người chơi: **con trỏ chuột không được chặn bất cứ chuyển động nào**.
 
+### 9.8 Mây tự bung, mọi cơn mưa từ mây (2026-10-29, GDD 15 §1.1, §3.4b)
+- `rainCloud.lifetimeSeconds` = 5: thời gian **chờ trước khi tự bung**. `MomentDirector.Expire`: mây 💧 tới `Expires` thì `Burst(m)` (như nhận, không trừ Sinh khí, hồi 30 phút như nhận); tan không bung chỉ khi tắt trời, ra khỏi bản đồ, hoặc vùng hết khô. `Collect` = `TrySpend` + `Burst`.
+- `NewCloud` xuất phát ở `tâm vùng − CloudSpeed × CloudLifetime` để bung đúng trên giữa vùng. `Hold` không còn cộng thời gian cho 💧 (con trỏ không chặn gì); `FadeOf` của 💧 luôn 1.
+- Hiển thị: mây bung đổi từ `Moment` sang `RainCloud` cùng `Id`, nên `CloudView` chuyển từ chờ sang mưa như khi click.
+- Bỏ `RainEffect` (giọt rơi từ mép trên màn hình). Sự kiện `Rain` (công cụ Mưa, mưa tự nhiên) gọi `CloudView.Shower(view, from, to)`: mây đứng yên phủ `[from, to]` (mưa tự nhiên: cắt theo khung nhìn ± 2 cột), số cụm theo bề ngang (≈ 0.9 cụm / cột), lan 1 giây, mưa 3 giây (tuyết 4), rồi co rút như mây 💧; tắt hẳn thì `WorldView.RainEnded` (cầu vồng) nếu không phải tuyết. Hiệu ứng trên cột (nhún, vũng) vẫn do `WorldView.Rained`. Không phụ thuộc vùng trời (sprite, không collider). Tuyết nền của `SkyView` giữ nguyên.
+
 ## 10. Bỏ Khách lạ (2026-10-28)
 - Người chơi không cần cơ chế này: bỏ `MomentKind.Visitor`, `CheckVisitors` / `VisitorFor` / `VisitorColumn`, vẽ khách (`SyncVisitors`, sprite Hươu sao / Rùa đầm / Cú mèo, bong bóng 🦋), chữ `moment.Visitor`, `visitor.*`, và các khoá `visitor*`, `bigGift*` trong `balance.json → moments`. `momentsim.py` bỏ theo.
 - `PlayerData.MetVisitors` (có từ GDD 09) giữ trong save để không đổi định dạng; không còn ai ghi vào.

@@ -110,7 +110,7 @@ Những thứ này tạo ra **khoảnh khắc** để người chơi can thiệp
 | Sinh vật lạ ghé qua | Ngẫu nhiên, khi vùng Cân bằng | Bong bóng 🦋 | Click để đón, nhận quà lớn và ghi vào Sổ tay ([09](09-khoanh-khac.md)) |
 
 ## 7. Thời gian
-- ~~Ngày/đêm theo giờ thật của máy.~~ ✅ **Thay bằng:** ngày đêm theo thời gian chơi (5 phút ngày + 5 phút đêm), mỗi loài có giờ thức / ngủ riêng. ↻ **Đổi 2026-10-24:** xem [11](11-nhip-va-tang-tan.md) §1.5. Ban đêm có cú, đom đóm; ban ngày có ong, bướm.
+- ~~Ngày/đêm theo giờ thật của máy.~~ ✅ **Thay bằng:** ngày đêm theo thời gian chơi (5 phút ngày + 5 phút đêm), mỗi loài có giờ thức / ngủ riêng. ↻ **Đổi 2026-10-24:** xem [11](11-nhip-va-tang-tan.md) §1. ↻ **2026-10-28:** bỏ tăng tốc, **1 mùa = 60 phút thật** ([18](18-nhip-theo-lan-liec.md)).5. Ban đêm có cú, đom đóm; ban ngày có ong, bướm.
 - ~~Mùa theo ngày thật: 1 mùa = 1 ngày thật.~~ ✅ **Thay bằng:** nhịp ×100 (1 phút thật = 100 phút mô phỏng), **1 mùa = 30 phút thật** (3 000 phút mp, 3 ngày đêm của game), tính theo thời gian mô phỏng đã chạy; tắt app thì mùa đứng yên. ↻ **Đổi 2026-10-24:** xem [11](11-nhip-va-tang-tan.md) §1.
   - 💡 Đổi mùa lúc **0:00 giờ máy**, chuyển dần trong khoảng 1 giờ để không giật.
   - 💡 Ảnh hưởng của mùa:

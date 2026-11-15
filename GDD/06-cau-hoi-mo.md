@@ -75,5 +75,11 @@ Các quyết định cần chốt trước khi làm prototype gameplay. Mỗi c�
 - ✅ **Q56.** Diệc giữ luật tự đến cũ; luật Q54 chỉ cho Sói, Cáo.
 - ✅ **Q57.** Sói, Cáo một mình 1 ngày mp thì coi như vắng, cặp mới được tới.
 
+- ✅ **Q58.** Vòng đời theo nhóm: cây Thảm / Bụi lớn nhanh (cỏ 24 giây, mâm xôi 2.4 phút), mọi thứ khác chậm hơn ×100 ~6 lần (thỏ sống 2.8 giờ, cáo 5.6 giờ, sồi lớn 1.4 giờ); mùa 1 giờ; bỏ tăng tốc thời gian ([18 §2–3](18-nhip-theo-lan-liec.md#3-vòng-đời-theo-nhóm--q58)).
+- ✅ **Q59.** Loài mới đến lần lượt, cách nhau ≥ 15 phút ([18 §4.1](18-nhip-theo-lan-liec.md#41-loài-mới-đến-lần-lượt--q59)).
+- ✅ **Q60.** Bong bóng ✨ / 🐣 sống 30 phút, mờ dần 5 phút cuối ([18 §4.2](18-nhip-theo-lan-liec.md#42-bong-bóng-sống-30-phút--q60)).
+- ✅ **Q61.** Mây 💧 giữ nguyên ([18 §4.3](18-nhip-theo-lan-liec.md#43-mây--q61)).
+- ✅ **Q62.** Mùa Đông là quãng nghỉ có chủ ý, không thêm luật ([18 §4.4](18-nhip-theo-lan-liec.md#44-mùa-đông-là-quãng-nghỉ--q62)).
+
 ## Đang mở
 *Hiện chưa có câu hỏi nào đang mở.*

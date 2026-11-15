@@ -20,6 +20,8 @@
 4. **Không làm phiền** (trụ cột 3): không nhấp nháy mạnh, không âm thanh tự phát, có cài đặt giảm hiệu ứng (§2.5).
 
 ### 0.3 Mục tiêu đo được
+
+> ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md)):** bỏ tăng tốc thời gian; cây tán lớn trong 1.4 giờ nên một bậc lớn **mỗi ~17 phút** (thay ~3 phút). Nhịp khoảnh khắc đo theo lần liếc ở [18 §5](18-nhip-theo-lan-liec.md#5-kết-quả-đo).
 | Chỉ số | Mục tiêu | Đo bằng |
 |--------|----------|---------|
 | Thao tác của thần → thấy thay đổi | **≤ 1 giây** | Thử tay |
@@ -41,9 +43,12 @@ Luật không đổi: Mưa cộng độ ẩm cho 7 cột ([04](04-quyen-nang-tha
 | **Vũng nước** nhỏ (1–2 vũng / 7 cột) | Cột chưa có cây tầng Thảm che kín | 20 giây, co lại rồi mất | Không có mùa Đông (tuyết) |
 | **Cây ngẩng lên**: cỏ, hoa, bụi nhún nhẹ (co 0.92 rồi dãn 1.04 rồi về 1) | Khi mưa chạm cột | 0.4 giây, lệch nhau 0–0.3 giây mỗi cây | Cho cảm giác "được tưới" ngay |
 | **Hồi sức**: một chấm lá xanh nhỏ bay lên khỏi cây | Cây có máu < 100 **và** máu đang tăng | Mỗi cây tối đa 1 chấm mỗi 3 giây, trong 30 giây sau mưa; tối đa 8 chấm cùng lúc trên khung nhìn | Theo nguyên tắc 3: chỉ cây hồi thật mới có |
+| **Mây mưa** (✅ 2026-10-29) | Mọi cơn mưa / tuyết: công cụ Mưa, mưa tự nhiên, mây 💧 | Mây lan ra 1 giây, mưa ~3 giây (tuyết ~4 giây), co rút 1 giây | Mưa / tuyết **luôn rơi từ đáy một đám mây đen** phủ đúng các cột được mưa, không rơi từ mép trên màn hình. Mưa tự nhiên phủ cả thế giới: mây chỉ vẽ trên khung nhìn. Có cả khi vùng trời tắt (chỉ là hình, không nhận click). Tuyết lất phất nền mùa Đông giữ như cũ |
 | **Cầu vồng** | Mưa (của thần hoặc tự nhiên) tắt lúc ban ngày (7h–16h), không phải mùa Đông | Hiện 2 giây, giữ 15 giây, mờ 3 giây (theo tốc độ chơi). ✅ (2026-10-27) Không bao giờ còn sau 17h: mờ hẳn trong khoảng 16h–17h | Xác suất **25%** mỗi lần mưa tắt; toàn thế giới tối đa 1 lần mỗi 5 phút thật. Vòng cung mờ (độ đục ≤ 35%) phía sau cây |
 
 ### 1.2 Gieo
+
+> ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md)):** thời gian lớn trong bảng dưới là của nhịp ×100. Nay: cây tán 1.4 giờ (mỗi bậc ~17 phút), mâm xôi 2.4 phút, cây tầng Thảm 24–47 giây ([18 §3](18-nhip-theo-lan-liec.md#3-vòng-đời-theo-nhóm--q58)).
 | Bước | Thời gian | Hình |
 |------|-----------|------|
 | Tinh linh bay tới chỗ gieo | 0.3 giây | Như 04 §0 |
@@ -180,6 +185,8 @@ Mô hình người chơi chăm của 11, 12 ghé mỗi **3 phút thật**. Bản
 **Hoãn sang bản đầy đủ:** 🌱 Hạt quà, 🍂 Ăn trụi (gợi ý nhóm C), 🏷️ Đặt tên vùng (vùng không còn hồi sinh, cần đặc tả lại), chế độ theo dõi. Đã bỏ từ 12: 💌 Lời mời, 🌿 Sẵn sàng hồi sinh.
 
 ### 3.3 Thời gian (phút thật)
+
+> ↻ **2026-10-28 ([18](18-nhip-theo-lan-liec.md), Q60):** ✨ và 🐣 sống **30 phút**, mờ dần **5 phút cuối** (thay 8 và 2). Các số khác giữ nguyên.
 | Thông số | 09 | **Rút gọn** |
 |----------|----|-------------|
 | Hiện dần | 1 giây | 1 giây |
@@ -203,6 +210,10 @@ Mô hình người chơi chăm của 11, 12 ghé mỗi **3 phút thật**. Bản
 
 ### 3.4b Mây mưa thay bong bóng 💧 (✅ 2026-10-27)
 Sau chơi thử: bong bóng 💧 lơ lửng giữa trời trông lạc lõng. Thay bằng **một đám mây**:
+
+> ↻ **2026-10-28 ([10 §2.1](10-giao-dien.md#21-vùng-trời-tắt-mặc-định--2026-10-28)):** mây 💧 chỉ có khi người chơi **bật vùng trời**. Vùng trời tắt (mặc định) thì không có khoảnh khắc 💧; gọi mưa bằng nút Mưa trên khay.
+
+> ↻ **2026-10-29:** mây chờ **không còn tan vì hết giờ**. Sau **5 giây** chờ mà không ai click, mây **tự bung** thành mây mưa (miễn phí: mưa tự nhiên) và mưa y như khi click. Mây xuất phát sao cho bung đúng trên giữa vùng khô. Click trong 5 giây đầu vẫn trả 30 để mưa sớm hơn. Mây chờ không mờ dần nữa; rê chuột không giữ mây lại (con trỏ không chặn gì). Vẫn tan không bung khi: vùng hết khô, tắt vùng trời, trôi ra khỏi bản đồ. Thời gian chờ ở `balance.json → moments.rainCloud.lifetimeSeconds` (5).
 
 - **Lúc chờ:** một đám mây trắng nhỏ, **cao hơn ngọn cây** (dải trên cùng của trời), trôi **theo gió như mây nền** (sang phải) với tốc độ **gấp 25 lần mây nền** (✅ sau thử tay 2026-10-27, hai lần ×5: 1 cột/giây, tức 60 cột/phút thật). Mây chờ chỉ **sống 10 giây** (mờ dần 3 giây cuối), xuất phát phía trước vùng đang khô sao cho bay ngang qua giữa vùng đúng giây thứ 5; trôi ra khỏi bản đồ trước khi được click thì tan. Thỉnh thoảng (mỗi 1.5–3 giây) một giọt nước nhỏ xuống từ đáy mây để khác mây trời thường. Rê chuột: thẻ thông tin "Vùng đang khô · Gọi mưa · 30 Sinh khí"; ✅ **con trỏ chuột không bao giờ chặn hay làm dừng chuyển động** (mây vẫn trôi qua con trỏ). Bản trước Claude tự thêm luật "rê chuột thì mây dừng", không có trong yêu cầu, đã bỏ 2026-10-27.
 - **Click:** trả giá một lần gọi mưa (30; thiếu thì mây ở lại, thẻ báo thiếu bao nhiêu). Mây **lan dài ra đủ 10 ô** trong 1 giây (các cụm mây tản ra hai bên), **hoá mây đen**, mưa rơi **trong suốt bề ngang mây**, vừa mưa vừa trôi tiếp. ✅ (2026-10-27, sau thử tay) Mây **mưa 15 giây** tính từ lúc click (gồm cả 1 giây lan ra), rồi **co rút lại** (các cụm dồn về giữa, ~1 giây), tắt mưa, mờ dần và biến mất; trong lúc co rút mây vẫn trôi nhưng không mưa thêm. Chạm mép bản đồ trước khi hết 15 giây thì co rút luôn tại đó. Mùa Đông là tuyết.

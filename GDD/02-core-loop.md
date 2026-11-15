@@ -50,7 +50,7 @@ Loài mới làm hệ sinh thái phức tạp hơn. Hệ phức tạp và cân b
   - ✅ Để dễ giữ app chạy:
     - **Khởi động cùng máy:** tắt mặc định, hỏi nhẹ nhàng một lần sau phiên chơi đầu tiên.
     - **Ẩn tạm:** thu dải đất vào biểu tượng trên menu bar (macOS) hoặc system tray (Windows). Thế giới vẫn chạy khi bị ẩn. Click biểu tượng để hiện lại.
-  - Mùa chạy theo **thời gian mô phỏng** (1 mùa = 30 phút thật = 3 ngày đêm, [11 §1](11-nhip-va-tang-tan.md#1-nhịp-100)); tắt app thì mùa đứng yên. Thế giới chuyển dần sang mùa mới trong giờ mô phỏng đầu (khoảng 36 giây thật).
+  - Mùa chạy theo **thời gian chơi** (✅ 2026-10-28: 1 mùa = 60 phút = 6 ngày đêm, không tăng tốc, [18](18-nhip-theo-lan-liec.md)); tắt app thì mùa đứng yên. Thế giới chuyển dần sang mùa mới trong những phút đầu của mùa.
 - **Không có vòng xoáy chết:** hệ sinh thái có thể suy giảm nhưng không bao giờ bị xoá sạch. Luôn còn "hạt giống ngủ" trong đất để hồi phục.
 
 ## Ví dụ một ngày chơi
